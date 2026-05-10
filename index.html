@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrenchLabs — We Build Digital Systems That Scale</title>
+    <meta name="description" content="TrenchLabs is a premium digital agency specializing in Web Development, Shopify Solutions, AI Automation, and Digital Marketing for modern startups and growing businesses.">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://trenchlabs.com/">
+    <meta property="og:title" content="TrenchLabs — We Build Digital Systems That Scale">
+    <meta property="og:description" content="Premium Web Development, Shopify, AI Automation, and Digital Marketing agency.">
+    <meta property="og:image" content="https://trenchlabs.com/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="TrenchLabs — We Build Digital Systems That Scale">
+    <meta property="twitter:description" content="Premium Web Development, Shopify, AI Automation, and Digital Marketing agency.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Core Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Gradient Glow Effects -->
+    <div class="ambient-glow glow-1" aria-hidden="true"></div>
+    <div class="ambient-glow glow-2" aria-hidden="true"></div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="main-navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" id="nav-logo" aria-label="TrenchLabs Home">
+                <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                    <rect x="15" y="15" width="70" height="70" rx="16" stroke="currentColor" stroke-width="8" />
+                    <path d="M35 50 L50 65 L65 35" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span>TrenchLabs</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" id="nav-home">Home</a></li>
+                <li><a href="#services" class="nav-link" id="nav-services">Services</a></li>
+                <li><a href="#work" class="nav-link" id="nav-work">Work</a></li>
+                <li><a href="#about" class="nav-link" id="nav-about">About</a></li>
+                <li><a href="#careers" class="nav-link" id="nav-careers">Careers</a></li>
+                <li><a href="#contact" class="nav-link" id="nav-contact-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle-btn" aria-label="Toggle visual theme">
+                    <!-- Sun Icon (Dark Mode active - shows sun to switch to light) -->
+                    <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <!-- Moon Icon (Light Mode active - shows moon to switch to dark) -->
+                    <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                <button class="btn btn-primary" id="nav-cta-btn">Start Project</button>
+                
+                <!-- Mobile Navigation Toggle -->
+                <button class="mobile-menu-toggle" id="mobile-menu-btn" aria-label="Toggle navigation menu">
+                    <span class="bar bar-1"></span>
+                    <span class="bar bar-2"></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Drawer Menu -->
+    <div class="mobile-menu" id="mobile-menu-drawer">
+        <ul class="mobile-nav-links">
+            <li><a href="#home" class="mobile-link" id="mobile-nav-home">Home</a></li>
+            <li><a href="#services" class="mobile-link" id="mobile-nav-services">Services</a></li>
+            <li><a href="#work" class="mobile-link" id="mobile-nav-work">Work</a></li>
+            <li><a href="#about" class="mobile-link" id="mobile-nav-about">About</a></li>
+            <li><a href="#careers" class="mobile-link" id="mobile-nav-careers">Careers</a></li>
+            <li><a href="#contact" class="mobile-link" id="mobile-nav-contact">Contact</a></li>
+        </ul>
+        <div class="mobile-menu-footer">
+            <button class="btn btn-primary btn-full" id="mobile-cta-btn">Start Project</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="section-hero" id="home">
+        <div class="hero-container container">
+            <div class="hero-badge reveal-item">
+                <span class="badge-dot"></span>
+                <span>Open for Client Projects, Internships &amp; Hiring</span>
+            </div>
+            <h1 class="hero-title reveal-item">
+                We Build Digital Systems <br><span class="gradient-text">That Scale.</span>
+            </h1>
+            <p class="hero-subtitle reveal-item">
+                Web Development, Shopify, Automation &amp; Digital Growth for Modern Businesses.
+            </p>
+            <div class="hero-actions reveal-item">
+                <a href="#work" class="btn btn-primary btn-lg" id="hero-view-work">View Work</a>
+                <a href="#contact" class="btn btn-secondary btn-lg" id="hero-contact">Contact Us</a>
+            </div>
+        </div>
+        
+        <!-- Abstract Background Lines -->
+        <div class="grid-overlay" aria-hidden="true">
+            <div class="grid-line vertical"></div>
+            <div class="grid-line vertical"></div>
+            <div class="grid-line vertical"></div>
+            <div class="grid-line horizontal"></div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="section-services" id="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">Capabilities</span>
+                <h2 class="section-title">What We Excel At</h2>
+                <p class="section-desc">We deliver clean, scalable, and performance-first solutions engineered for long-term growth.</p>
+            </div>
+            
+            <div class="services-grid">
+                <!-- Service 1: Web Development -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="16 18 22 12 16 6"></polyline>
+                            <polyline points="8 6 2 12 8 18"></polyline>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Web Development</h3>
+                    <p class="service-card-desc">Next-generation web architectures using modern frameworks and standard vanilla stacks. High speed, complete responsiveness, clean code.</p>
+                    <ul class="service-features">
+                        <li>Vite &amp; Next.js</li>
+                        <li>Jamstack / Static sites</li>
+                        <li>Headless APIs</li>
+                    </ul>
+                </div>
+
+                <!-- Service 2: Shopify Solutions -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                            <line x1="3" y1="6" x2="21" y2="6"></line>
+                            <path d="M16 10a4 4 0 0 1-8 0"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Shopify Solutions</h3>
+                    <p class="service-card-desc">Bespoke store setups, theme customization, and custom app building to maximize your conversions and optimize purchase workflows.</p>
+                    <ul class="service-features">
+                        <li>Custom Liquid Themes</li>
+                        <li>App Integrations</li>
+                        <li>Performance Auditing</li>
+                    </ul>
+                </div>
+
+                <!-- Service 3: WordPress Development -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                            <line x1="8" y1="21" x2="16" y2="21"></line>
+                            <line x1="12" y1="17" x2="12" y2="21"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">WordPress Development</h3>
+                    <p class="service-card-desc">Custom high-performance theme builds and plugin architectures keeping administration fluid, visual editing simple, and page speeds optimal.</p>
+                    <ul class="service-features">
+                        <li>FSE &amp; Gutenberg</li>
+                        <li>WooCommerce</li>
+                        <li>SEO Optimization</li>
+                    </ul>
+                </div>
+
+                <!-- Service 4: AI Automation -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">AI Automation</h3>
+                    <p class="service-card-desc">Integrate modern intelligence directly into your daily routines. Automate workflows, custom scraping setups, and OpenAI tools.</p>
+                    <ul class="service-features">
+                        <li>LLM Integrations</li>
+                        <li>API Custom Pipelines</li>
+                        <li>Automated Workflows</li>
+                    </ul>
+                </div>
+
+                <!-- Service 5: Digital Marketing -->
+                <div class="service-card reveal-card">
+                    <div class="service-icon-wrapper">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3 class="service-card-title">Digital Marketing</h3>
+                    <p class="service-card-desc">Data-backed growth hacking, analytical marketing insights, performance optimization, and premium programmatic ad setup.</p>
+                    <ul class="service-features">
+                        <li>Analytics Dashboards</li>
+                        <li>Conversion Rate (CRO)</li>
+                        <li>SEO &amp; Content Ops</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work / Portfolio Section -->
+    <section class="section-work" id="work">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">Portfolio</span>
+                <h2 class="section-title">Selected Case Studies</h2>
+                <p class="section-desc">A premium gallery showcasing modern digital products designed and developed from scratch.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- Case Study 1: Nexa Restaurant -->
+                <div class="portfolio-item reveal-item">
+                    <div class="portfolio-mockup mockup-nexa">
+                        <!-- Simulated Interactive UI elements inside Mockup for highly premium Apple-like feel -->
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span class="m-dot red"></span><span class="m-dot yellow"></span><span class="m-dot green"></span></div>
+                            <div class="mockup-address">nexa-bistros.com</div>
+                        </div>
+                        <div class="mockup-content nexa-content">
+                            <div class="nexa-hero-text">NEXA</div>
+                            <div class="nexa-subtext">Culinary Excellence Redefined</div>
+                            <div class="nexa-dish-grid">
+                                <div class="dish-mini-card"></div>
+                                <div class="dish-mini-card"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <div class="portfolio-category">Web Development</div>
+                        <h3 class="portfolio-title">Nexa Restaurant</h3>
+                        <p class="portfolio-desc">A premium interactive web experience for high-end dining, featuring smooth parallax, custom table reservations, and instantaneous menu transitions.</p>
+                    </div>
+                </div>
+
+                <!-- Case Study 2: Velora Fashion -->
+                <div class="portfolio-item reveal-item">
+                    <div class="portfolio-mockup mockup-velora">
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span class="m-dot red"></span><span class="m-dot yellow"></span><span class="m-dot green"></span></div>
+                            <div class="mockup-address">velora.co</div>
+                        </div>
+                        <div class="mockup-content velora-content">
+                            <div class="velora-brand">V E L O R A</div>
+                            <div class="velora-product-showcase">
+                                <div class="product-mini-box"></div>
+                                <div class="product-mini-desc">
+                                    <div class="p-line-1"></div>
+                                    <div class="p-line-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <div class="portfolio-category">Shopify Solutions</div>
+                        <h3 class="portfolio-title">Velora Fashion</h3>
+                        <p class="portfolio-desc">High-fashion storefront built with custom Liquid, scoring 98+ on Google PageSpeed, resulting in a 42% uplift in conversion rate.</p>
+                    </div>
+                </div>
+
+                <!-- Case Study 3: Medica Clinic -->
+                <div class="portfolio-item reveal-item">
+                    <div class="portfolio-mockup mockup-medica">
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span class="m-dot red"></span><span class="m-dot yellow"></span><span class="m-dot green"></span></div>
+                            <div class="mockup-address">medica-healthcare.org</div>
+                        </div>
+                        <div class="mockup-content medica-content">
+                            <div class="medica-nav">
+                                <div class="medica-logo-stub"></div>
+                                <div class="medica-btn-stub"></div>
+                            </div>
+                            <div class="medica-body">
+                                <div class="medica-main">Precision Care</div>
+                                <div class="medica-p-stub"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <div class="portfolio-category">WordPress Development</div>
+                        <h3 class="portfolio-title">Medica Clinic</h3>
+                        <p class="portfolio-desc">A highly accessible and secure WordPress architecture for a network of modern medical facilities, integrating HIPAA-compliant appointments.</p>
+                    </div>
+                </div>
+
+                <!-- Case Study 4: AssistFlow AI -->
+                <div class="portfolio-item reveal-item">
+                    <div class="portfolio-mockup mockup-assistflow">
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span class="m-dot red"></span><span class="m-dot yellow"></span><span class="m-dot green"></span></div>
+                            <div class="mockup-address">app.assistflow.ai</div>
+                        </div>
+                        <div class="mockup-content assistflow-content">
+                            <div class="assistflow-sidebar"></div>
+                            <div class="assistflow-main">
+                                <div class="dashboard-charts">
+                                    <div class="chart-item bar-chart-sim">
+                                        <div class="bar bar-a" style="height: 40%"></div>
+                                        <div class="bar bar-b" style="height: 75%"></div>
+                                        <div class="bar bar-c" style="height: 90%"></div>
+                                    </div>
+                                    <div class="chart-item flex-fill-sim"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <div class="portfolio-category">AI Automation</div>
+                        <h3 class="portfolio-title">AssistFlow AI</h3>
+                        <p class="portfolio-desc">A sleek dashboard that aggregates robotic process data and feeds structured analysis into corporate Slack and email channels via AI logic.</p>
+                    </div>
+                </div>
+
+                <!-- Case Study 5: GrowthPulse -->
+                <div class="portfolio-item reveal-item">
+                    <div class="portfolio-mockup mockup-growthpulse">
+                        <div class="mockup-header">
+                            <div class="mockup-dots"><span class="m-dot red"></span><span class="m-dot yellow"></span><span class="m-dot green"></span></div>
+                            <div class="mockup-address">growthpulse.io</div>
+                        </div>
+                        <div class="mockup-content growthpulse-content">
+                            <div class="pulse-stats">
+                                <div class="pulse-stat-card"><div class="stat-lbl">CTR</div><div class="stat-val">+14.2%</div></div>
+                                <div class="pulse-stat-card"><div class="stat-lbl">ROAS</div><div class="stat-val">5.8x</div></div>
+                            </div>
+                            <div class="pulse-sparkline">
+                                <svg viewBox="0 0 100 30" width="100%" height="30">
+                                    <path d="M0,25 Q15,5 30,18 T60,8 T90,2 T100,10" fill="none" stroke="#2563EB" stroke-width="2"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="portfolio-details">
+                        <div class="portfolio-category">Digital Marketing</div>
+                        <h3 class="portfolio-title">GrowthPulse</h3>
+                        <p class="portfolio-desc">A unified marketing analytics dashboard that visualizes cross-platform ad performance and optimizes spend via real-time statistical modeling.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section-process" id="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">How We Work</span>
+                <h2 class="section-title">A Structured Blueprint</h2>
+                <p class="section-desc">From discovery to execution, we approach every challenge with meticulous attention to structural detail.</p>
+            </div>
+
+            <div class="timeline-container">
+                <!-- Timeline Line -->
+                <div class="timeline-bar" aria-hidden="true">
+                    <div class="timeline-progress" id="process-progress-bar"></div>
+                </div>
+
+                <!-- Step 1: Discover -->
+                <div class="timeline-step reveal-step" data-step="1">
+                    <div class="step-marker">01</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Discover</h3>
+                        <p class="step-desc">We deep-dive into your existing workflows, legacy codebase, target market demographics, and key architectural bottlenecks.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2: Strategy -->
+                <div class="timeline-step reveal-step" data-step="2">
+                    <div class="step-marker">02</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Strategy</h3>
+                        <p class="step-desc">We engineer a robust, actionable scope of work with firm timelines, exact tech-stack selections, and key performance benchmarks.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3: Design -->
+                <div class="timeline-step reveal-step" data-step="3">
+                    <div class="step-marker">03</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Design</h3>
+                        <p class="step-desc">We sculpt minimalist, stunning high-fidelity layouts based on modern interface principles prioritizing usability, responsiveness, and clean space.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4: Develop -->
+                <div class="timeline-step reveal-step" data-step="4">
+                    <div class="step-marker">04</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Develop</h3>
+                        <p class="step-desc">Our developers translate the designs into pixel-perfect, clean, fully semantic code, complete with thorough test suites.</p>
+                    </div>
+                </div>
+
+                <!-- Step 5: Launch -->
+                <div class="timeline-step reveal-step" data-step="5">
+                    <div class="step-marker">05</div>
+                    <div class="step-content">
+                        <h3 class="step-title">Launch</h3>
+                        <p class="step-desc">We publish your system via high-availability CDNs, implement advanced error-tracking, and guide you through smooth, risk-free cutovers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section-about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text-content reveal-item">
+                    <span class="section-tagline">About TrenchLabs</span>
+                    <h2 class="section-title">We build digital systems and experiences that scale.</h2>
+                    <p class="about-text">
+                        TrenchLabs creates scalable digital systems and modern web experiences for growing businesses. We integrate high-speed frontend engineering, headless e-commerce structures, and modern API automations into unified digital frameworks.
+                    </p>
+                    <p class="about-text-secondary">
+                        Our ethos is deeply rooted in minimalism, structural integrity, and unmatched loading efficiency. We believe that professional enterprise solutions should be incredibly fast and visually premium.
+                    </p>
+                </div>
+                
+                <div class="about-counters reveal-item">
+                    <div class="counter-card">
+                        <div class="counter-number" data-target="99">0</div>
+                        <div class="counter-label">PageSpeed Score</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" data-target="40">0</div>
+                        <div class="counter-label">Launch Assets</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" data-target="5">0</div>
+                        <div class="counter-label">Core Verticals</div>
+                    </div>
+                    <div class="counter-card">
+                        <div class="counter-number" data-target="100" data-suffix="%">0</div>
+                        <div class="counter-label">Client Loyalty</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Careers / Internships Section (Added for hiring/internship open feedback) -->
+    <section class="section-careers" id="careers">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">Join TrenchLabs</span>
+                <h2 class="section-title">Build the Future With Us</h2>
+                <p class="section-desc">We are always looking for ambitious developers, designers, and marketers eager to learn and execute premium systems.</p>
+            </div>
+
+            <div class="careers-grid">
+                <!-- Job Card 1 -->
+                <div class="career-card reveal-card">
+                    <div class="career-meta">
+                        <span class="badge badge-internship">Internship</span>
+                        <span class="career-location">Remote / Pakistan</span>
+                    </div>
+                    <h3 class="career-role">Frontend Developer Intern</h3>
+                    <p class="career-details">Learn the art of premium web production. Master semantic vanilla CSS, animations, and modern JS framework workflows.</p>
+                    <div class="career-card-footer">
+                        <span class="career-duration">Duration: 3-6 Months</span>
+                        <button class="btn btn-secondary btn-sm apply-btn" data-role="Frontend Developer Intern" id="btn-apply-fe-intern">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 2 -->
+                <div class="career-card reveal-card">
+                    <div class="career-meta">
+                        <span class="badge badge-fulltime">Full-time</span>
+                        <span class="career-location">Remote / Hybrid</span>
+                    </div>
+                    <h3 class="career-role">Shopify Theme Engineer</h3>
+                    <p class="career-details">Create blazing-fast headless commerce frontends and high-converting custom Shopify sections using Liquid, JS, and Tailwind.</p>
+                    <div class="career-card-footer">
+                        <span class="career-duration">Experience: 2+ Years</span>
+                        <button class="btn btn-secondary btn-sm apply-btn" data-role="Shopify Theme Engineer" id="btn-apply-shopify-eng">Apply Now</button>
+                    </div>
+                </div>
+
+                <!-- Job Card 3 -->
+                <div class="career-card reveal-card">
+                    <div class="career-meta">
+                        <span class="badge badge-internship">Internship</span>
+                        <span class="career-location">Remote</span>
+                    </div>
+                    <h3 class="career-role">AI Integrations &amp; Marketing Intern</h3>
+                    <p class="career-details">Research AI scrapers, construct automated workflows via Make/Zapier, and learn how programmatic analytics drive client growth.</p>
+                    <div class="career-card-footer">
+                        <span class="career-duration">Duration: 3 Months</span>
+                        <button class="btn btn-secondary btn-sm apply-btn" data-role="AI Integrations &amp; Marketing Intern" id="btn-apply-ai-intern">Apply Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tagline">Testimonials</span>
+                <h2 class="section-title">Trusted By Founders</h2>
+                <p class="section-desc">Don't take our word for it. Here is what leading founders say about TrenchLabs.</p>
+            </div>
+
+            <div class="testimonials-slider-container reveal-item">
+                <div class="testimonials-track" id="testimonials-track">
+                    <!-- Slide 1 -->
+                    <div class="testimonial-slide">
+                        <p class="testimonial-quote">“TrenchLabs completely transformed our e-commerce platform. Our site speed went from sluggish to instant, and our online conversions spiked by over 40% in the first month alone.”</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <span class="author-name">Sarah Jenkins</span>
+                                <span class="author-title">Founder, Velora Fashion</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 2 -->
+                    <div class="testimonial-slide">
+                        <p class="testimonial-quote">“The level of meticulous structural planning they brought to our automation dashboard was outstanding. AssistFlow AI works flawlessly, saving us hundreds of human ops hours.”</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <span class="author-name">Marcus Cole</span>
+                                <span class="author-title">CTO, AssistFlow Systems</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Slide 3 -->
+                    <div class="testimonial-slide">
+                        <p class="testimonial-quote">“Highly professional, transparent, and insanely talented. TrenchLabs didn't just write code; they worked closely with us to streamline our digital client acquisition pathways.”</p>
+                        <div class="testimonial-author">
+                            <div class="author-info">
+                                <span class="author-name">Dr. Clara Mendez</span>
+                                <span class="author-title">Operations Director, Medica Group</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slider Indicators -->
+                <div class="slider-controls">
+                    <button class="slider-arrow arrow-left" id="slider-prev-btn" aria-label="Previous testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="19" y1="12" x2="5" y2="12"></line>
+                            <polyline points="12 19 5 12 12 5"></polyline>
+                        </svg>
+                    </button>
+                    <div class="slider-dots" id="slider-dots-container"></div>
+                    <button class="slider-arrow arrow-right" id="slider-next-btn" aria-label="Next testimonial">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="section-cta" id="contact">
+        <div class="container">
+            <div class="cta-inner reveal-item">
+                <span class="cta-tag">Let's Connect</span>
+                <h2 class="cta-title">Let’s Build Something Great.</h2>
+                <p class="cta-desc">Whether you have a product to build, a storefront to scale, or are seeking a career/internship to test your limits, we're ready to partner.</p>
+                <div class="cta-actions">
+                    <button class="btn btn-primary btn-lg" id="cta-project-btn">Start a Project</button>
+                    <a href="#careers" class="btn btn-secondary btn-lg" id="cta-careers-btn">Join Our Team</a>
+                </div>
+                
+                <!-- Quick Contact Form Grid (Premium layout inline) -->
+                <div class="quick-contact-container">
+                    <h3 class="quick-contact-title">Or write us a quick message</h3>
+                    <form class="quick-contact-form" id="main-contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="contact-name">Your Name</label>
+                                <input type="text" id="contact-name" name="name" placeholder="John Doe" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="contact-email">Email Address</label>
+                                <input type="email" id="contact-email" name="email" placeholder="john@example.com" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" name="message" rows="4" placeholder="Describe your system goals, budget, or timeline..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full" id="contact-submit-btn">Send Message</button>
+                    </form>
+                    <div class="form-success-message" id="contact-success-msg">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="success-icon">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        <h4>Thank You!</h4>
+                        <p>Your message has been sent successfully. One of our lead systems engineers will respond within 24 hours.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#home" class="logo logo-footer" id="footer-logo">
+                        <svg width="24" height="24" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="logo-icon">
+                            <rect x="15" y="15" width="70" height="70" rx="16" stroke="currentColor" stroke-width="8" />
+                            <path d="M35 50 L50 65 L65 35" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        <span>TrenchLabs</span>
+                    </a>
+                    <p class="footer-tagline">We build high-availability digital systems engineered to scale.</p>
+                </div>
+                
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Agency</h4>
+                    <ul>
+                        <li><a href="#services" id="f-services">Services</a></li>
+                        <li><a href="#work" id="f-work">Our Work</a></li>
+                        <li><a href="#about" id="f-about">About Us</a></li>
+                        <li><a href="#careers" id="f-careers">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Contact</h4>
+                    <ul>
+                        <li><a href="mailto:hello@trenchlabs.com" id="f-email">hello@trenchlabs.com</a></li>
+                        <li><a href="#contact" id="f-inquire">Inquire Online</a></li>
+                        <li><span class="footer-time-badge">Islamabad / 24/7 Ops</span></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-col">
+                    <h4 class="footer-title">Social</h4>
+                    <div class="footer-socials">
+                        <a href="https://github.com/trenchlabs" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile" id="f-github">GitHub</a>
+                        <a href="https://linkedin.com/company/trenchlabs" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn page" id="f-linkedin">LinkedIn</a>
+                        <a href="https://twitter.com/trenchlabs" target="_blank" rel="noopener noreferrer" aria-label="Twitter profile" id="f-twitter">Twitter</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p class="copyright">&copy; 2026 TrenchLabs. All rights reserved. Precision software engineering.</p>
+                <div class="footer-bottom-actions">
+                    <a href="#home" class="back-to-top" id="back-to-top-link">Back to Top &uarr;</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL 1: Start Project Dialog (Client Intake Form) -->
+    <div class="modal-overlay" id="project-modal" aria-hidden="true" role="dialog" aria-labelledby="project-modal-title">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="project-modal-close" aria-label="Close modal">&times;</button>
+            <h3 class="modal-title" id="project-modal-title">Start Your Project</h3>
+            <p class="modal-subtitle">Tell us about your digital goals and we will model an optimal execution strategy.</p>
+            
+            <form class="modal-form" id="project-wizard-form">
+                <div class="form-group">
+                    <label for="p-name">Your Full Name</label>
+                    <input type="text" id="p-name" name="name" required placeholder="John Doe">
+                </div>
+                <div class="form-group">
+                    <label for="p-email">Work Email</label>
+                    <input type="email" id="p-email" name="email" required placeholder="john@company.com">
+                </div>
+                <div class="form-group">
+                    <label for="p-service">Primary Service Needed</label>
+                    <select id="p-service" name="service" required>
+                        <option value="" disabled selected>Select an option...</option>
+                        <option value="web-dev">Web Development</option>
+                        <option value="shopify">Shopify Solutions</option>
+                        <option value="wordpress">WordPress Custom Site</option>
+                        <option value="automation">AI &amp; Automation Pipelines</option>
+                        <option value="marketing">Digital Marketing / CRO</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="p-budget">Est. Project Budget</label>
+                    <select id="p-budget" name="budget" required>
+                        <option value="" disabled selected>Select an option...</option>
+                        <option value="under-5k">Under $5,000</option>
+                        <option value="5k-15k">$5,000 - $15,000</option>
+                        <option value="15k-30k">$15,000 - $30,000</option>
+                        <option value="above-30k">$30,000+ / Enterprise</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="p-details">Brief Project Details</label>
+                    <textarea id="p-details" name="details" rows="3" placeholder="Core specs, timelines, existing stack..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="wizard-submit-btn">Submit Request</button>
+            </form>
+            <div class="modal-success-screen" id="project-success-screen">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="success-icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h3>Request Received!</h3>
+                <p>Thank you for initiating contact. We are evaluating your project scope and will follow up with scheduling options inside of 12 hours.</p>
+                <button type="button" class="btn btn-secondary" id="project-success-close-btn">Close Window</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL 2: Careers Apply Dialog (Structured Hiring / Internship form) -->
+    <div class="modal-overlay" id="apply-modal" aria-hidden="true" role="dialog" aria-labelledby="apply-modal-title">
+        <div class="modal-card">
+            <button class="modal-close-btn" id="apply-modal-close" aria-label="Close application modal">&times;</button>
+            <h3 class="modal-title" id="apply-modal-title">Apply for <span id="apply-role-placeholder">Position</span></h3>
+            <p class="modal-subtitle">TrenchLabs | Engineering-focused Recruitment Form</p>
+            
+            <form class="modal-form" id="careers-apply-form">
+                <!-- Hidden input tracking selected position -->
+                <input type="hidden" id="apply-target-role" name="role" value="">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="c-name">Full Name</label>
+                        <input type="text" id="c-name" name="name" required placeholder="Alice Vance">
+                    </div>
+                    <div class="form-group">
+                        <label for="c-email">Email Address</label>
+                        <input type="email" id="c-email" name="email" required placeholder="alice@example.com">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="c-portfolio">Portfolio or GitHub Link</label>
+                    <input type="url" id="c-portfolio" name="portfolio" required placeholder="https://github.com/alice">
+                </div>
+                <div class="form-group">
+                    <label for="c-cover">Why are you interested in TrenchLabs?</label>
+                    <textarea id="c-cover" name="interest" rows="3" required placeholder="Briefly describe your passion, drive, or relevant projects..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="c-resume">Upload CV / Resume (Paste link to PDF/GDrive)</label>
+                    <input type="url" id="c-resume" name="resume_link" required placeholder="https://drive.google.com/file/.../view">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full" id="careers-submit-btn">Submit Application</button>
+            </form>
+            <div class="modal-success-screen" id="careers-success-screen">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="success-icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <h3>Application Submitted!</h3>
+                <p>Your details have been registered into our recruiting flow. Our team will review your repositories and files, and reach out if there's an alignment.</p>
+                <button type="button" class="btn btn-secondary" id="careers-success-close-btn">Back to Site</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Script -->
+    <script src="script.js"></script>
+</body>
+</html>
