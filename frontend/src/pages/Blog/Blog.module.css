@@ -1,0 +1,87 @@
+.hero {
+    padding: 12rem 0 4rem 0;
+}
+
+.blogSection {
+    padding-top: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+.card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: var(--card-shadow);
+    transition: border-color var(--t-fast);
+}
+.card:hover {
+    border-color: var(--border-hover);
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--accent-color);
+    background-color: var(--accent-light);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.meta {
+    display: flex;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.cardBody h2 {
+    font-size: 1.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin-bottom: 0.75rem;
+}
+.cardBody p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+}
+
+.readBtn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    transition: color var(--t-fast);
+}
+.readBtn:hover {
+    color: var(--accent-color);
+}
+
+/* Breakpoint overrides */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}

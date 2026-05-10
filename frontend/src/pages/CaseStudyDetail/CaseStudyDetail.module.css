@@ -1,0 +1,226 @@
+.hero {
+    padding: 12rem 0 5rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.backLink {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+.backLink:hover {
+    color: var(--text-primary);
+}
+
+.categoryBadge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.heroContent h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    margin-bottom: 0.5rem;
+}
+
+.tagline {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    max-width: 620px;
+}
+
+/* Content Columns */
+.mainContent {
+    padding: 6rem 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+}
+
+.detailsCol {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+}
+
+.segment h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+}
+
+.segment p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+}
+
+/* Sidebar Box Styling */
+.sideCard {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.sideHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+.sideHeader h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-sans);
+    font-weight: 700;
+}
+
+.techGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.techBadge {
+    font-size: 0.75rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.projectList {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+.projectList li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.projectList li span:first-child {
+    color: var(--text-muted);
+}
+.projectList li span:last-child {
+    font-weight: 600;
+}
+.liveBadge {
+    font-weight: 700 !important;
+}
+
+/* Results metrics */
+.metricsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.metricCard {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: var(--card-shadow);
+}
+
+.metricIcon {
+    margin-bottom: 1rem;
+}
+
+.metricNum {
+    font-family: var(--font-geom);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.metricDesc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Next Project Link Card */
+.nextSection {
+    padding: 6rem 0;
+}
+.nextCard {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--t-normal);
+    box-shadow: var(--card-shadow);
+}
+.nextCard:hover {
+    border-color: var(--accent-glow);
+    transform: translateY(-4px);
+}
+.nextText span {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 700;
+}
+.nextText h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
+}
+.nextArrow {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: transform var(--t-normal);
+}
+.nextCard:hover .nextArrow {
+    transform: translateX(6px);
+}
+
+/* Breakpoint overrides */
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .metricsGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+@media (max-width: 640px) {
+    .nextCard {
+        padding: 2rem 1.5rem;
+    }
+}

@@ -1,0 +1,98 @@
+.card {
+    position: relative;
+    background-color: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    height: 320px;
+    padding: 2.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    text-decoration: none;
+    color: #FFFFFF;
+    transition: border-color var(--t-normal), transform var(--t-normal);
+}
+
+.card:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+}
+
+/* Background Role Overlap Style (CEO, PM, SSE) */
+.abbrBackground {
+    position: absolute;
+    top: 5%;
+    right: -10px;
+    font-size: 8.5rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.015);
+    font-family: var(--font-geom);
+    pointer-events: none;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    user-select: none;
+    transition: color var(--t-normal);
+}
+
+.card:hover .abbrBackground {
+    color: rgba(255, 255, 255, 0.025);
+}
+
+/* Content Meta */
+.header {
+    z-index: 2;
+}
+
+.name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 0.25rem;
+    color: #FFFFFF;
+}
+
+.role {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+}
+
+/* Bottom elements and accent panel */
+.bottomTray {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+.arrowIcon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    transition: background var(--t-fast), border-color var(--t-fast), transform var(--t-fast);
+}
+
+.card:hover .arrowIcon {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: #FFFFFF;
+    transform: rotate(45deg);
+}
+
+.accentBlock {
+    width: 60px;
+    height: 6px;
+    background-color: var(--accent);
+    border-radius: var(--radius-full);
+    transition: width var(--t-normal);
+}
+
+.card:hover .accentBlock {
+    width: 100px;
+}
