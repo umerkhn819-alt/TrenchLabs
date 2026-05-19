@@ -1,0 +1,214 @@
+.hero {
+    position: relative;
+    padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 1rem 0 0;
+    color: var(--text-primary);
+}
+
+.heroDesc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.calendarSection {
+    padding-top: 0;
+}
+
+.schedulerCard {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+}
+
+.schedulerGrid {
+    display: grid;
+    grid-template-columns: 1.4fr 1.6fr;
+    border-radius: var(--radius-lg);
+}
+
+.pickerPane {
+    border-right: 1px solid var(--border-color);
+    padding: 3rem;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+}
+
+.paneHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+.paneHeader h3 {
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-family: var(--font-sans);
+    font-weight: 700;
+}
+
+.datesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+.dateBtn, .timeBtn {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.85rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all var(--t-fast);
+}
+.dateBtn:hover, .timeBtn:hover {
+    border-color: var(--border-hover);
+    color: var(--text-primary);
+}
+
+.activeBtn {
+    background-color: var(--color-foreground);
+    border-color: var(--color-foreground);
+    color: white !important;
+}
+
+.timesGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+}
+
+/* Form pane on right */
+.formPane {
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bookingForm h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+}
+.slotMeta {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.formHint {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+.formError {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #b91c1c;
+}
+
+.formPlaceholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+.formPlaceholder p {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 280px;
+}
+
+.spinner {
+    animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+/* Success screen */
+.successScreen {
+    text-align: center;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.successIcon {
+    color: var(--text-primary);
+}
+.successScreen h2 {
+    font-size: 1.85rem;
+}
+.successScreen p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 500px;
+}
+.summaryBox {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+.summaryBox span {
+    color: var(--text-muted);
+}
+
+/* Response transitions */
+@keyframes fadeEntry {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Breakpoint overrides */
+@media (max-width: 1024px) {
+    .schedulerGrid {
+        grid-template-columns: 1fr;
+    }
+    .pickerPane {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 2.5rem 1.5rem;
+    }
+    .formPane {
+        padding: 2.5rem 1.5rem;
+    }
+}
+@media (max-width: 640px) {
+    .datesGrid, .timesGrid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -20,28 +20,28 @@ export const CASE_STUDIES_BY_ID: Record<string, CaseStudy> = {
         ],
         nextId: 'velora-fashion',
         nextName: 'Velora Fashion Store',
-        accent: '#3B82F6'
+        accent: '#0f172a'
     },
     'velora-fashion': {
         id: 'velora-fashion',
         title: 'Velora Fashion Commerce Store',
-        category: 'Shopify Solutions',
-        tagline: 'Boosting shopping conversions via Custom Liquid and checkout optimizations.',
+        category: 'E-Commerce Solutions',
+        tagline: 'Boosting shopping conversions via custom storefront engineering and checkout optimizations.',
         overview:
             'Velora Fashion required an elegant digital storefront capable of delivering fluid page flows, variant preview switches, and checkout speed multipliers.',
         challenge:
             'Bespoke design ideas were restricted by bloated third-party theme builders, dragging down mobile speed scores to 28/100, which increased acquisition costs.',
         solution:
-            'Our team engineered a tailored Shopify store utilizing Custom Liquid with zero heavy script dependencies. We implemented dynamic variant controllers, asynchronous checkout requests, and automatic GTM schema markers.',
+            'Our team engineered a tailored Shopify store utilizing Custom Liquid with zero heavy script dependencies. We implemented dynamic variant controllers, asynchronous checkout requests, and structured data for rich results.',
         tech: ['Shopify Liquid Core', 'GraphQL Admin API', 'Vanilla JavaScript', 'TailwindCSS Layouts', 'Google Tag Manager'],
         metrics: [
             { val: '42%', desc: 'Checkout conversion lift' },
             { val: '92/100', desc: 'Mobile Web Vitals score' },
-            { val: '2.5x', desc: 'Average return-on-ad-spend (ROAS)' }
+            { val: '1.8s', desc: 'Median checkout interaction time' }
         ],
         nextId: 'medica-clinic',
         nextName: 'Medica Clinic Portal',
-        accent: '#10B981'
+        accent: '#0f172a'
     },
     'medica-clinic': {
         id: 'medica-clinic',
@@ -62,12 +62,12 @@ export const CASE_STUDIES_BY_ID: Record<string, CaseStudy> = {
         ],
         nextId: 'assistflow-ai',
         nextName: 'AssistFlow AI Automation',
-        accent: '#8B5CF6'
+        accent: '#0f172a'
     },
     'assistflow-ai': {
         id: 'assistflow-ai',
         title: 'AssistFlow AI CRM Automations',
-        category: 'AI & Automation Solutions',
+        category: 'AI Automation Systems',
         tagline: 'Replacing administrative pipelines with automated trigger nets.',
         overview:
             'AssistFlow wanted to automate repetitive administrative cycles—such as outbound business email lead processing and Salesforce CRM document filings.',
@@ -81,30 +81,9 @@ export const CASE_STUDIES_BY_ID: Record<string, CaseStudy> = {
             { val: '40 Hours', desc: 'Saved administrative work/week' },
             { val: '<1 Min', desc: 'Lead response average delay' }
         ],
-        nextId: 'growthpulse',
-        nextName: 'GrowthPulse Marketing Analytics',
-        accent: '#EC4899'
-    },
-    growthpulse: {
-        id: 'growthpulse',
-        title: 'GrowthPulse Analytical Marketing',
-        category: 'Digital Marketing & CRO',
-        tagline: 'Structuring customer acquisition loops via technical SEO audits.',
-        overview:
-            'GrowthPulse requested a growth program to boost outbound traffic, map checkout conversion drops, and configure accurate attribution charts.',
-        challenge:
-            'Legacy page headers lacked meta tags and logical structural headers, and missing GTM tracking parameters led to inaccurate ROI calculation charts.',
-        solution:
-            'Our marketing team completed a comprehensive semantic SEO audit, configured structured GA4 event triggers, resolved technical layout crawls, and set up dynamic Hotjar tracking maps.',
-        tech: ['Technical SEO Auditing', 'Google Analytics 4', 'GTM Tag Triggers', 'Hotjar Heatmap Recording'],
-        metrics: [
-            { val: '312%', desc: 'Organic traffic growth (6 mo)' },
-            { val: '4.8x', desc: 'Average conversion ROAS' },
-            { val: '28%', desc: 'Cart abandonments drop' }
-        ],
         nextId: 'nexa-restaurant',
         nextName: 'Nexa Restaurant Booking',
-        accent: '#F59E0B'
+        accent: '#0f172a'
     }
 };
 
@@ -113,41 +92,37 @@ export const WORK_PROJECTS: WorkProjectCard[] = [
         id: 'nexa-restaurant',
         title: 'Nexa Restaurant',
         category: 'Web Development',
-        tagline: 'A luxury dining reservation system and responsive web portal.',
+        tagline: 'Reservations, seating, and a guest portal that actually gets used.',
         tech: ['React', 'Vite', 'Node.js', 'PostgreSQL'],
-        accentColor: '#3B82F6'
+        accentColor: '#0f172a',
+        image: '/projects/nexa.jpg'
     },
     {
         id: 'velora-fashion',
         title: 'Velora Fashion',
-        category: 'Shopify Solutions',
+        category: 'E-Commerce Solutions',
         tagline: 'High-speed Custom Liquid checkout and premium fashion storefront.',
         tech: ['Shopify', 'Liquid', 'JavaScript', 'TailwindCSS'],
-        accentColor: '#10B981'
+        accentColor: '#0f172a',
+        image: '/projects/velora.jpg'
     },
     {
         id: 'medica-clinic',
         title: 'Medica Clinic',
-        category: 'WordPress Dev',
+        category: 'WordPress Development',
         tagline: 'Custom native block-driven portal for clinic and client queues.',
         tech: ['WordPress Core', 'Custom PHP', 'Gutenberg Blocks', 'Postgres Queue'],
-        accentColor: '#8B5CF6'
+        accentColor: '#0f172a',
+        image: '/projects/medica.jpg'
     },
     {
         id: 'assistflow-ai',
         title: 'AssistFlow AI',
-        category: 'AI Automation',
+        category: 'AI Automation Systems',
         tagline: 'Custom LLM support dialogs and background automated event pipelines.',
         tech: ['OpenAI APIs', 'LangChain', 'Make.com', 'Python'],
-        accentColor: '#EC4899'
-    },
-    {
-        id: 'growthpulse',
-        title: 'GrowthPulse',
-        category: 'Digital Marketing',
-        tagline: 'SEO semantic structure models and performance GA4 trackers.',
-        tech: ['Technical SEO', 'GA4 Events', 'Hotjar Heatmaps', 'ROAS Calculations'],
-        accentColor: '#F59E0B'
+        accentColor: '#0f172a',
+        image: '/projects/nexa.jpg'
     }
 ];
 

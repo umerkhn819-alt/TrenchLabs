@@ -1,0 +1,205 @@
+.hero {
+    padding: 12rem 0 4rem 0;
+}
+
+/* About segment */
+.aboutGrid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.8fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.aboutLeft h2 {
+    font-size: 1.85rem;
+    margin-bottom: 1rem;
+}
+.aboutLeft p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.featureCard {
+    display: flex;
+    gap: 1.25rem;
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+}
+
+.featIcon {
+    color: var(--text-primary);
+}
+
+.featureCard h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+}
+.featureCard p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Tracks */
+.tracksSection {
+    background-color: var(--bg-secondary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    margin-top: 4rem;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 2.5rem;
+    box-shadow: var(--card-shadow);
+    transition: transform var(--t-fast);
+}
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.cardBody {
+    margin: 1.5rem 0;
+}
+.cardBody h3 {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+}
+
+.metaRow {
+    display: flex;
+    flex-direction: column;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+/* Modal overlays */
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(0 0 0 / 0.58);
+    backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modalContent {
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    width: 100%;
+    max-width: 600px;
+    padding: 3rem;
+    position: relative;
+    box-shadow: 0 22px 56px rgb(0 0 0 / 0.45), var(--glass-inset);
+    animation: scaleIn var(--t-normal) forwards;
+}
+
+@keyframes scaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.85rem;
+    color: var(--text-muted);
+    cursor: pointer;
+}
+
+.applyForm h2 {
+    font-size: 1.6rem;
+    margin-bottom: 0.25rem;
+}
+.applyForm p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+}
+
+.formGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+.spinner {
+    animation: rotate 1s linear infinite;
+}
+@keyframes rotate {
+    100% { transform: rotate(360deg); }
+}
+
+.successScreen {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+.successIcon {
+    color: var(--text-primary);
+}
+.successScreen h2 {
+    font-size: 1.6rem;
+}
+.successScreen p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 440px;
+}
+
+/* Breakpoints overrides */
+@media (max-width: 1024px) {
+    .aboutGrid, .grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+}
+@media (max-width: 640px) {
+    .formGrid {
+        grid-template-columns: 1fr;
+    }
+    .modalContent {
+        padding: 2rem 1.5rem;
+    }
+}

@@ -6,11 +6,11 @@ import type {
     TelemetryLog
 } from '../models/types';
 
-/** Same-origin `/api` in dev (Vite proxy). In production set VITE_API_URL to your public API base, e.g. `https://api.yourdomain.com/api` */
+/** Supabase Edge Function base URL, e.g. https://<project>.supabase.co/functions/v1/api */
 const API_BASE =
-    typeof import.meta.env.VITE_API_URL === 'string' && import.meta.env.VITE_API_URL.trim() !== ''
-        ? import.meta.env.VITE_API_URL.trim().replace(/\/$/, '')
-        : '/api';
+    typeof process.env.NEXT_PUBLIC_API_URL === 'string' && process.env.NEXT_PUBLIC_API_URL.trim() !== ''
+        ? process.env.NEXT_PUBLIC_API_URL.trim().replace(/\/$/, '')
+        : 'http://127.0.0.1:54321/functions/v1/api';
 
 const mapId = <T extends { id?: string; _id?: string }>(raw: unknown): T => {
     const item = raw as T;
@@ -65,11 +65,18 @@ export class AppController {
     }
 
     // CONTACTS CONTROLLERS
-    static async submitContact(name: string, email: string, message: string): Promise<ContactSubmission> {
+    static async submitContact(
+        name: string,
+        email: string,
+        message: string,
+        phone?: string,
+        project_type?: string,
+        budget?: string
+    ): Promise<ContactSubmission> {
         const response = await fetch(`${API_BASE}/contacts`, {
             method: 'POST',
             headers: this.getHeaders(),
-            body: JSON.stringify({ name, email, message })
+            body: JSON.stringify({ name, email, message, phone, project_type, budget })
         });
         if (!response.ok) throw new Error('API request failed');
         return mapId<ContactSubmission>(await response.json());
@@ -194,12 +201,13 @@ export class AppController {
         time: string,
         company: string,
         contact: string,
-        email: string
+        email: string,
+        phone?: string
     ): Promise<ConsultationBooking> {
         const response = await fetch(`${API_BASE}/bookings`, {
             method: 'POST',
             headers: this.getHeaders(),
-            body: JSON.stringify({ date, time, company, contact, email })
+            body: JSON.stringify({ date, time, company, contact, email, phone })
         });
         if (!response.ok) throw new Error('API request failed');
         return mapId<ConsultationBooking>(await response.json());

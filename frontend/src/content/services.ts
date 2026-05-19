@@ -3,97 +3,150 @@ import type { ServiceDetailContent, ServiceSummary } from './types';
 export const SERVICE_SUMMARIES: ServiceSummary[] = [
     {
         id: 'web-development',
-        name: 'Web Development',
+        name: 'Modern Web Development',
         icon: 'Monitor',
-        tagline: 'React, Next.js & modern architectures.',
-        desc: 'We build high-availability SPA and SSR platforms using optimal tech schemas. Blazing page loads, perfect SEO compliance, and modular maintainability.',
-        tech: ['React', 'Next.js', 'TypeScript', 'Node.js', 'PostgreSQL'],
-        accent: '#3B82F6'
+        tagline: 'Sites, dashboards, and apps on modern stacks.',
+        desc: 'Marketing sites, dashboards, portals, and custom apps—fast, clear, and maintainable.',
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'GSAP'],
+        accent: '#0f172a',
+        tier: 'core'
     },
     {
-        id: 'shopify',
-        name: 'Shopify Solutions',
+        id: 'ai-automation',
+        name: 'AI Automation Systems',
+        icon: 'Cpu',
+        tagline: 'Chatbots, agents, and workflow automation.',
+        desc: 'AI assistants, CRM and support automation, lead flows, and integrations that connect safely to your data.',
+        tech: ['OpenAI APIs', 'FastAPI', 'Supabase', 'Automation workflows'],
+        accent: '#0f172a',
+        tier: 'core'
+    },
+    {
+        id: 'ui-ux-design',
+        name: 'UI/UX Design',
+        icon: 'Palette',
+        tagline: 'Interfaces and systems that ship.',
+        desc: 'UI, dashboards, responsive systems, and landing pages—aligned to how your product is actually built.',
+        tech: ['Figma', 'Design systems', 'Prototyping', 'Motion UX', 'Accessibility'],
+        accent: '#0f172a',
+        tier: 'core'
+    },
+    {
+        id: 'e-commerce',
+        name: 'E-Commerce Solutions',
         icon: 'ShoppingBag',
-        tagline: 'Custom Liquid, Headless, and CRO optimizations.',
-        desc: 'Fully bespoke e-commerce solutions built to convert. We customize Liquid themes, construct custom private Shopify apps, and deploy Headless storefronts.',
-        tech: ['Shopify Liquid', 'Headless Commerce', 'GraphQL', 'TailwindCSS'],
-        accent: '#10B981'
+        tagline: 'Stores built for conversion and speed.',
+        desc: 'Shopify and custom storefronts—checkout, performance, and merchandising without bloated stacks.',
+        tech: ['Shopify', 'Headless commerce', 'React', 'Tailwind CSS'],
+        accent: '#0f172a',
+        tier: 'secondary'
     },
     {
         id: 'wordpress',
         name: 'WordPress Development',
         icon: 'Terminal',
-        tagline: 'Custom high-speed Gutenberg & WooCommerce blocks.',
-        desc: 'Ditch bloated theme builders. We develop premium custom WordPress themes from scratch with optimized PHP/JS, ensuring instant page-load performance.',
-        tech: ['WordPress Core', 'Custom PHP', 'Gutenberg Blocks', 'WooCommerce'],
-        accent: '#8B5CF6'
-    },
-    {
-        id: 'ai-automation',
-        name: 'AI & Automation Solutions',
-        icon: 'Cpu',
-        tagline: 'Custom LLM agents, automated data scrapers, & API pipes.',
-        desc: 'Save hundreds of administrative hours. We integrate OpenAI, Anthropic, and open-source models with automated workflows (Zapier/Make) and scraper scripts.',
-        tech: ['OpenAI APIs', 'LangChain', 'Make.com', 'Python', 'Selenium'],
-        accent: '#EC4899'
-    },
-    {
-        id: 'digital-marketing',
-        name: 'Digital Marketing & CRO',
-        icon: 'BarChart2',
-        tagline: 'Conversion optimizations, SEM audits, and analytic loops.',
-        desc: 'We map detailed customer acquisition loops. Combining comprehensive technical SEO audits, Google Tag Manager events, and targeted UI enhancements.',
-        tech: ['Technical SEO', 'Google Tag Manager', 'Hotjar Heatmaps', 'ROAS Analysis'],
-        accent: '#F59E0B'
+        tagline: 'Lean WordPress and WooCommerce.',
+        desc: 'Custom themes, native blocks, WooCommerce where it fits—no heavy builders; security and speed first.',
+        tech: ['WordPress Core', 'Custom PHP', 'Gutenberg', 'WooCommerce'],
+        accent: '#0f172a',
+        tier: 'secondary'
     }
 ];
 
 export const SERVICE_DETAILS_BY_ID: Record<string, ServiceDetailContent> = {
     'web-development': {
         id: 'web-development',
-        name: 'Web Development',
+        name: 'Modern Web Development',
         icon: 'Monitor',
-        color: '#3B82F6',
-        tagline: 'Engineering high-speed, scalable web architectures.',
-        desc: 'We craft production-grade, search-engine-optimized Single Page Applications (SPA) and Server-Side Rendered (SSR) platforms. Our builds prioritize core web vitals, absolute modular security, and seamless developer handoff.',
-        tech: ['React / Vite', 'Next.js', 'Node.js', 'PostgreSQL', 'Cloudflare Workers'],
+        color: '#0f172a',
+        tagline: 'Sites, dashboards, and apps on modern stacks.',
+        desc: 'Sites, dashboards, portals, and custom apps in Next.js / React with Tailwind, motion where it earns its keep—CWV, accessibility, and clean handoff.',
+        tech: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion', 'GSAP'],
         process: [
-            { step: '01', title: 'Asset Modeling', body: 'Designing schema models, API endpoints, and route matrices.' },
-            { step: '02', title: 'Modular Coding', body: 'Programming highly reusable TypeScript components following rigid DRY principles.' },
-            { step: '03', title: 'Stress Analytics', body: 'Executing rigorous load testing, layout layout checks, and automated unit tests.' }
+            { step: '01', title: 'Discovery & IA', body: 'Goals, audiences, routes, and integrations mapped before design or build.' },
+            { step: '02', title: 'Build & integrate', body: 'Component UI, APIs, auth as needed, staging with typed, testable code.' },
+            { step: '03', title: 'Launch & measure', body: 'Performance budgets, monitoring, iteration on real usage.' }
         ],
         faqs: [
             {
-                q: 'Which framework do you recommend for static websites?',
-                a: 'We typically recommend Next.js or Astro for content-heavy sites due to their excellent caching, image optimizations, and SEO performance.'
+                q: 'Do you recommend Next.js for marketing and content-heavy sites?',
+                a: 'Usually—strong defaults for routing, images, and SEO-friendly rendering. We pick static, server, or hybrid by your content and traffic.'
             },
             {
-                q: 'Do you offer backend database configurations?',
-                a: 'Yes, we design comprehensive database schemas, write secure ORM integrations, and set up relational databases like PostgreSQL.'
+                q: 'Can you connect dashboards and portals to our existing backend?',
+                a: 'Yes—REST/GraphQL, Supabase or Postgres, and SaaS tools your team already runs.'
             }
         ]
     },
-    shopify: {
-        id: 'shopify',
-        name: 'Shopify Solutions',
-        icon: 'ShoppingBag',
-        color: '#10B981',
-        tagline: 'State-of-the-art Custom Liquid and Headless commerce pipelines.',
-        desc: 'Transform your retail operations into high-converting storefronts. We develop tailored Shopify Liquid themes, custom back-office ERP/API sync plugins, and Headless storefronts that deliver instantaneous visual loading.',
-        tech: ['Shopify Liquid', 'Headless Commerce', 'GraphQL Admin API', 'React', 'TailwindCSS'],
+    'ai-automation': {
+        id: 'ai-automation',
+        name: 'AI Automation Systems',
+        icon: 'Cpu',
+        color: '#0f172a',
+        tagline: 'Chatbots, agents, and workflow automation.',
+        desc: 'Chatbots, workflow automation, assistants, CRM/support, lead pipelines, and custom AI hooks via OpenAI, FastAPI, Supabase—with retries and observability, not fragile scripts.',
+        tech: ['OpenAI APIs', 'FastAPI', 'Supabase', 'Automation workflows', 'TypeScript / Python'],
         process: [
-            { step: '01', title: 'Cart Flow Auditing', body: 'Reviewing checkout bottlenecks, user metrics, and friction points.' },
-            { step: '02', title: 'Liquid Customization', body: 'Bespoke design coding with Zero heavy external app dependencies to maintain speed.' },
-            { step: '03', title: 'Conversion Rigging', body: 'A/B testing checkout layouts, configuring custom product bundles, and smart recommendation triggers.' }
+            { step: '01', title: 'Workflow audit', body: 'Manual steps, data sources, failure modes, and compliance before model work.' },
+            { step: '02', title: 'Integration layer', body: 'Secure APIs, queues, retries, and logging so automations survive real traffic.' },
+            { step: '03', title: 'Iterate safely', body: 'Refine prompts/tools, human-in-the-loop where needed, guardrails for PII and quality.' }
         ],
         faqs: [
             {
-                q: 'Why choose Custom Liquid over pre-made marketplace themes?',
-                a: 'Marketplace themes often come bloated with generic sliders and scripts. Custom Liquid is written from scratch, matching your branding precisely and loading up to 4x faster.'
+                q: 'How do you keep customer data safe with LLMs?',
+                a: 'Least privilege, optional proxies, retention policies, and clear separation of training vs production payloads unless you choose otherwise.'
             },
             {
-                q: 'Can you migrate our products from WooCommerce or Magento?',
-                a: 'Yes, we manage comprehensive database exports, preserving SKU codes, historical records, variants, and image locations safely.'
+                q: 'Which platforms can you automate?',
+                a: 'Anything with a solid API—CRMs, helpdesks, spreadsheets, Slack, booking tools, internal apps.'
+            }
+        ]
+    },
+    'ui-ux-design': {
+        id: 'ui-ux-design',
+        name: 'UI/UX Design',
+        icon: 'Palette',
+        color: '#0f172a',
+        tagline: 'Interfaces and systems that ship.',
+        desc: 'Product UI, dashboards, responsive systems, and landing pages—scoped to engineering constraints so designs ship, not stall.',
+        tech: ['Figma', 'Design tokens', 'Component specs', 'Motion UX', 'WCAG-minded patterns'],
+        process: [
+            { step: '01', title: 'UX mapping', body: 'Jobs-to-be-done, flows, and hierarchy before pixels—especially dense, multi-role apps.' },
+            { step: '02', title: 'UI systems', body: 'Type, spacing, color, and reusable patterns across breakpoints and states.' },
+            { step: '03', title: 'Build-ready handoff', body: 'Specs, prototypes, and dev pairing so build matches intent.' }
+        ],
+        faqs: [
+            {
+                q: 'Do you design only, or design plus build?',
+                a: 'Both—we often pair UI with our web track. Pure design works when you already have engineering.'
+            },
+            {
+                q: 'Can you work inside our existing brand guidelines?',
+                a: 'Yes—we extend tokens and components instead of fighting your identity.'
+            }
+        ]
+    },
+    'e-commerce': {
+        id: 'e-commerce',
+        name: 'E-Commerce Solutions',
+        icon: 'ShoppingBag',
+        color: '#0f172a',
+        tagline: 'Stores built for conversion and speed.',
+        desc: 'Shopify themes and redesigns, headless or Liquid where it fits, custom storefronts—fast loads, clear merchandising, reliable checkout.',
+        tech: ['Shopify', 'Liquid', 'Headless commerce', 'React', 'Tailwind CSS'],
+        process: [
+            { step: '01', title: 'Commerce audit', body: 'Catalog, checkout friction, apps, and a performance baseline before redesign.' },
+            { step: '02', title: 'Store build', body: 'Sections, cart UX, metafields, and ops integrations.' },
+            { step: '03', title: 'Conversion hardening', body: 'Measurement, A/B-friendly layouts, tuning without piling on slow scripts.' }
+        ],
+        faqs: [
+            {
+                q: 'Do you only work with Shopify?',
+                a: 'Shopify is a core strength; we also build custom commerce frontends when the roadmap needs more.'
+            },
+            {
+                q: 'Can you migrate from another platform?',
+                a: 'Yes—careful product, variant, customer, and URL moves with redirects and SEO continuity.'
             }
         ]
     },
@@ -101,71 +154,23 @@ export const SERVICE_DETAILS_BY_ID: Record<string, ServiceDetailContent> = {
         id: 'wordpress',
         name: 'WordPress Development',
         icon: 'Terminal',
-        color: '#8B5CF6',
-        tagline: 'Custom high-speed Gutenberg block engineering.',
-        desc: 'Ditch slow theme builders. We develop premium WordPress sites from the ground up utilizing native block architectures. This yields maximum page speed, strict site security, and extreme administrative ease.',
-        tech: ['WordPress Core', 'Custom PHP Frameworks', 'React Gutenberg API', 'TailwindCSS'],
+        color: '#0f172a',
+        tagline: 'Lean WordPress and WooCommerce.',
+        desc: 'Custom themes, native blocks, WooCommerce without bloated builders—hardening, lean DB, front-end performance that fits a modern studio.',
+        tech: ['WordPress Core', 'Custom PHP', 'Gutenberg', 'WooCommerce', 'Tailwind CSS'],
         process: [
-            { step: '01', title: 'Blocks Planning', body: 'Mapping native gutenberg block options for administrative ease.' },
-            { step: '02', title: 'Custom Coding', body: 'Strict semantic PHP/JS code patterns without third-party page generators.' },
-            { step: '03', title: 'GTM Integration', body: 'Setting up precise analytics triggers, CMS caches, and Cloudflare configurations.' }
+            { step: '01', title: 'Content modeling', body: 'Block map, roles, and editorial workflows so the CMS stays usable.' },
+            { step: '02', title: 'Custom build', body: 'Semantic PHP/JS, reusable blocks, minimal plugins for speed and stability.' },
+            { step: '03', title: 'Harden & ship', body: 'Hardening, caching, edge rules, analytics wiring for your host.' }
         ],
         faqs: [
             {
                 q: 'Do you use Elementor or Divi?',
-                a: 'No, we avoid heavy page builders. We program custom gutenberg Gutenberg blocks directly using PHP or React. This keeps the database lean and guarantees excellent page load speeds.'
+                a: 'No—native blocks and custom code stay fast, portable, and easier to secure.'
             },
             {
-                q: 'Is WordPress secure enough for corporate databases?',
-                a: 'Yes. With custom backend configurations, disabled public XML-RPC endpoints, and restricted core directories, WordPress is highly resilient and safe.'
-            }
-        ]
-    },
-    'ai-automation': {
-        id: 'ai-automation',
-        name: 'AI & Automation Solutions',
-        icon: 'Cpu',
-        color: '#EC4899',
-        tagline: 'Leverage LLM intelligence and automated event trigger pipelines.',
-        desc: 'Automate high-friction administrative tasks. We connect custom LLM systems (OpenAI GPTs, Anthropic Claude, open-source models) to internal databases, configuring smart Make/Zapier triggers, and real-time scrapers.',
-        tech: ['OpenAI / Claude APIs', 'LangChain Framework', 'Make.com & Zapier', 'Python Automation', 'NodeJS Orchestrators'],
-        process: [
-            { step: '01', title: 'Friction Mapping', body: 'Auditing workflow data bottlenecks and pinpointing manual repetition.' },
-            { step: '02', title: 'API Integration', body: 'Connecting LLMs to relational records or spreadsheets securely.' },
-            { step: '03', title: 'System Audits', body: 'Continuously refining prompt engineering, managing rate-limit caches, and formatting JSON structures.' }
-        ],
-        faqs: [
-            {
-                q: 'How secure is our database content with custom LLM pipelines?',
-                a: 'We construct secure proxies and enforce data retention rules to prevent external networks from training models on your sensitive documents.'
-            },
-            {
-                q: 'What software platforms can you automate?',
-                a: 'We connect virtually any platform with public REST APIs, including HubSpot, Salesforce, Notion, Slack, Jira, and custom backend tools.'
-            }
-        ]
-    },
-    'digital-marketing': {
-        id: 'digital-marketing',
-        name: 'Digital Marketing & CRO',
-        icon: 'BarChart2',
-        color: '#F59E0B',
-        tagline: 'Accelerating growth via analytic engineering and user flow optimization.',
-        desc: 'We map structured digital customer acquisition funnels. Combining comprehensive technical audits, custom Google Tag Manager configurations, and visual heatmap logs to maximize conversions and track ROI.',
-        tech: ['Google Tag Manager', 'Google Analytics 4', 'Heatmap Audits (Hotjar)', 'Semantic SEO Models'],
-        process: [
-            { step: '01', title: 'Funnel Logging', body: 'Auditing page drops, recording scroll logs, and compiling visual heatmaps.' },
-            { step: '02', title: 'Experiment Setup', body: 'Structuring conversion experiments, ad target parameters, and page layout modifications.' },
-            { step: '03', title: 'ROI Assessment', body: 'Reviewing traffic acquisition quality, calculating CPC metrics, and optimizing budgets.' }
-        ],
-        faqs: [
-            {
-                q: 'What is your core approach to SEO?',
-                a: 'We focus on technical health first (schema markups, speed, crawling accessibility) followed by highly structured semantic content structures to answer precise search intents.'
-            },
-            {
-                q: 'How do you measure conversion rate improvements?',
-                a: 'We configure thorough tracking loops via GTM/GA4 and deploy targeted layout changes to measure baseline lift against a control group.'
+                q: 'Is WordPress suitable for sensitive or regulated content?',
+                a: 'With proper hosting, access control, locked-down endpoints, and careful plugins, it can meet strict needs—we plan for that up front.'
             }
         ]
     }

@@ -56,6 +56,7 @@ create table if not exists public.consultation_bookings (
     company text not null,
     contact text not null,
     email text not null,
+    phone text,
     status text not null default 'Scheduled',
     meeting_link text
 );

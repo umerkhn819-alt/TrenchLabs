@@ -25,12 +25,12 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ id, title, category, t
                 <div className={styles.mockupContent}>
                     {id === 'nexa-restaurant' && (
                         <div className={styles.nexaMock}>
-                            <h4 style={{ color: accentColor }}>Nexa Res</h4>
+                            <h4 className={styles.mockTitle}>Nexa Res</h4>
                             <div className={styles.bookingRow}>
                                 <span>Reservation #4829</span>
                                 <span className={styles.badge}>Confirmed</span>
                             </div>
-                            <div className={styles.chartLine} style={{ backgroundColor: accentColor }}></div>
+                            <div className={styles.chartLine} />
                         </div>
                     )}
                     {id === 'velora-fashion' && (
@@ -59,7 +59,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({ id, title, category, t
                     )}
                     {id === 'growthpulse' && (
                         <div className={styles.growthMock}>
-                            <span className={styles.growthTitle}>GrowthPulse Analytics</span>
+                            <span className={styles.growthTitle}>Performance &amp; SEO lab</span>
                             <div className={styles.bars}>
                                 <div className={styles.bar} style={{ height: '30%', backgroundColor: accentColor }}></div>
                                 <div className={styles.bar} style={{ height: '60%', backgroundColor: accentColor }}></div>

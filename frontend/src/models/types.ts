@@ -3,6 +3,9 @@ export interface ContactSubmission {
     created_at: string;
     name: string;
     email: string;
+    phone?: string;
+    project_type?: string;
+    budget?: string;
     message: string;
     status: 'Pending' | 'Responded';
     response_text?: string;
@@ -42,6 +45,7 @@ export interface ConsultationBooking {
     company: string;
     contact: string;
     email: string;
+    phone?: string;
     status: 'Scheduled' | 'Rescheduled' | 'Completed' | 'Cancelled';
     meeting_link?: string;
     response_text?: string;

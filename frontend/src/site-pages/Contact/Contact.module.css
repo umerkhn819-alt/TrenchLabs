@@ -1,0 +1,312 @@
+.hero {
+    position: relative;
+    padding: clamp(5rem, 10vw, 8rem) 0 clamp(4rem, 7vw, 6rem);
+    overflow: hidden;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.heroTitle {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin: 1rem 0 0;
+    color: var(--text-primary);
+}
+
+.heroDesc {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.contactSection {
+    padding: clamp(5rem, 8vw, 7rem) 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 5rem;
+    align-items: start;
+}
+
+/* ─── Info column ─── */
+.infoTitle {
+    font-family: var(--font-display), ui-serif, Georgia, serif;
+    font-size: 1.75rem;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.infoSub {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.infoCards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.infoCard {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1.25rem;
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-xl);
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: default;
+}
+
+a.infoCard {
+    cursor: pointer;
+}
+
+a.infoCard:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glass-deep);
+    border-color: color-mix(in srgb, var(--color-accent) 25%, var(--glass-border));
+}
+
+.infoCardCta {
+    border-color: color-mix(in srgb, var(--color-accent) 22%, var(--glass-border));
+    background: color-mix(in srgb, var(--color-accent) 5%, var(--glass-bg-strong));
+}
+
+.infoCardIcon {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.infoCard h4 {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.2rem;
+}
+
+.infoCard p {
+    font-size: 0.88rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    margin: 0 0 0.2rem;
+}
+
+.infoCardSub {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+}
+
+/* ─── Form ─── */
+.formCol {
+    background: var(--glass-bg-strong);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-2xl);
+    overflow: hidden;
+}
+
+.form {
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.formHeader {
+    margin-bottom: 0.5rem;
+}
+
+.formHeader h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+}
+
+.formHeader p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+/* Floating label inputs */
+.floatGroup {
+    position: relative;
+}
+
+.floatInput {
+    width: 100%;
+    padding: 1rem 1rem 0.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--color-card, var(--bg-subtle));
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    resize: none;
+    display: block;
+}
+
+.floatInput:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgb(56 189 248 / 0.18);
+}
+
+.floatLabel {
+    position: absolute;
+    top: 0.85rem;
+    left: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    pointer-events: none;
+    transition: all 0.18s ease;
+    transform-origin: left top;
+}
+
+.floatInput:focus + .floatLabel,
+.floatInput:not(:placeholder-shown) + .floatLabel {
+    transform: scale(0.78) translateY(-0.45rem);
+    color: var(--color-accent);
+}
+
+.floatTextarea {
+    padding-top: 1.25rem;
+    min-height: 130px;
+}
+
+.selectGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.selectGroup label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+}
+
+.selectInput {
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--color-card, var(--bg-subtle));
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.selectInput:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgb(56 189 248 / 0.18);
+}
+
+.formError {
+    color: #dc2626;
+    font-size: 0.82rem;
+    padding: 0.75rem 1rem;
+    background: rgb(220 38 38 / 0.08);
+    border: 1px solid rgb(220 38 38 / 0.2);
+    border-radius: var(--radius-md);
+    margin: 0;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Success */
+.successCard {
+    padding: 3rem 2.25rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.successIcon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgb(34 197 94 / 0.1);
+    border: 1px solid rgb(34 197 94 / 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #22c55e;
+    margin-bottom: 0.5rem;
+}
+
+.successCard h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.successCard p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    max-width: 340px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .formRow {
+        grid-template-columns: 1fr;
+    }
+    .form {
+        padding: 1.5rem;
+    }
+}

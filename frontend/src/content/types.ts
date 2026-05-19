@@ -1,4 +1,6 @@
-export type ServiceIconKey = 'Monitor' | 'ShoppingBag' | 'Terminal' | 'Cpu' | 'BarChart2';
+export type ServiceIconKey = 'Monitor' | 'ShoppingBag' | 'Terminal' | 'Cpu' | 'BarChart2' | 'Palette';
+
+export type ServiceTier = 'core' | 'secondary';
 
 export type ServiceSummary = {
     id: string;
@@ -8,6 +10,7 @@ export type ServiceSummary = {
     desc: string;
     tech: string[];
     accent: string;
+    tier: ServiceTier;
 };
 
 export type ServiceDetailContent = {
@@ -46,6 +49,7 @@ export type WorkProjectCard = {
     tagline: string;
     tech: string[];
     accentColor: string;
+    image?: string;
 };
 
 export type TeamExpertCard = {
@@ -54,6 +58,7 @@ export type TeamExpertCard = {
     role: string;
     roleAbbr: string;
     accent: string;
+    photo?: string;
 };
 
 export type TeamMemberDetail = {
@@ -66,6 +71,7 @@ export type TeamMemberDetail = {
     skills: { name: string; val: string }[];
     projects: string[];
     accent: string;
+    photo?: string;
 };
 
 export type BlogPostCard = {
@@ -74,4 +80,5 @@ export type BlogPostCard = {
     date: string;
     read: string;
     desc: string;
+    image?: string;
 };

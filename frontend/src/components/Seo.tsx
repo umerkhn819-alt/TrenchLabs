@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 
-const siteUrl = (import.meta.env.VITE_SITE_URL || 'https://trenchlabs.com').replace(/\/$/, '');
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://trenchlabs.com').replace(/\/$/, '');
 
 type SeoProps = {
     title: string;

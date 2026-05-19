@@ -5,7 +5,7 @@ import { useEffect } from 'react';
  */
 export function Analytics() {
     useEffect(() => {
-        const plausible = import.meta.env.VITE_PLAUSIBLE_DOMAIN?.trim();
+        const plausible = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN?.trim();
         if (plausible && !document.querySelector('script[data-trench-plausible]')) {
             const s = document.createElement('script');
             s.src = 'https://plausible.io/js/script.js';
@@ -15,7 +15,7 @@ export function Analytics() {
             document.head.appendChild(s);
         }
 
-        const gaId = import.meta.env.VITE_GA_MEASUREMENT_ID?.trim();
+        const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
         if (gaId && !document.querySelector('script[data-trench-ga]')) {
             const gtagScript = document.createElement('script');
             gtagScript.async = true;

@@ -1,10 +1,10 @@
 import type { TeamExpertCard, TeamMemberDetail } from './types';
 
 export const TEAM_EXPERTS: TeamExpertCard[] = [
-    { id: 'umar-khan', name: 'Umar Khan', role: 'CEO & Founder', roleAbbr: 'CEO', accent: '#10B981' },
-    { id: 'muhammad-tariq', name: 'Muhammad Tariq', role: 'Partnership Manager', roleAbbr: 'PM', accent: '#3B82F6' },
-    { id: 'sarah-jenkins', name: 'Sarah Jenkins', role: 'Lead Systems Engineer', roleAbbr: 'SSE', accent: '#8B5CF6' },
-    { id: 'clara-mendez', name: 'Clara Mendez', role: 'Operations Director', roleAbbr: 'OPS', accent: '#EC4899' }
+    { id: 'umar-khan', name: 'Umar Khan', role: 'CEO & Founder', roleAbbr: 'CEO', accent: '#0f172a', photo: '/team/umar.jpg' },
+    { id: 'muhammad-tariq', name: 'Muhammad Tariq', role: 'Partnership Manager', roleAbbr: 'PM', accent: '#0f172a', photo: '/team/tariq.jpg' },
+    { id: 'sarah-jenkins', name: 'Sarah Jenkins', role: 'Lead Systems Engineer', roleAbbr: 'SSE', accent: '#0f172a', photo: '/team/sarah.jpg' },
+    { id: 'clara-mendez', name: 'Clara Mendez', role: 'Operations Director', roleAbbr: 'OPS', accent: '#0f172a', photo: '/team/clara.jpg' }
 ];
 
 export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
@@ -14,7 +14,7 @@ export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
         role: 'CEO & Founder',
         roleAbbr: 'CEO',
         philosophy: 'Simplifying architectural complexity is the ultimate form of digital premium. We code with speed and design with intent.',
-        bio: 'Umar established TrenchLabs to address the growing demand for highly responsive, zero-bloat web applications. With over 8 years of engineering expertise across distributed cloud platforms and state-of-the-art SaaS layers, he guides our design principles and strategic operations.',
+        bio: 'Umar established TrenchLabs to address the growing demand for highly responsive, zero-bloat web applications. With over 8 years of engineering expertise across distributed cloud platforms and production web systems, he guides our design principles and strategic operations.',
         skills: [
             { name: 'System Architecture', val: '98%' },
             { name: 'React / Next.js', val: '95%' },
@@ -22,7 +22,7 @@ export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
             { name: 'Product Optimization', val: '96%' }
         ],
         projects: ['Nexa Restaurant Reservation Ledger', 'AssistFlow Automation Node Orchestrators'],
-        accent: '#10B981'
+        accent: '#0f172a'
     },
     'muhammad-tariq': {
         id: 'muhammad-tariq',
@@ -37,8 +37,8 @@ export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
             { name: 'Client Engagement', val: '98%' },
             { name: 'Agile Timelines', val: '95%' }
         ],
-        projects: ['Velora Fashion Conversion Programs', 'GrowthPulse Campaign Analytics'],
-        accent: '#3B82F6'
+        projects: ['Velora Fashion Conversion Programs', 'GrowthPulse technical performance'],
+        accent: '#0f172a'
     },
     'sarah-jenkins': {
         id: 'sarah-jenkins',
@@ -54,7 +54,7 @@ export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
             { name: 'API Design Patterns', val: '95%' }
         ],
         projects: ['Redis Double-booking Lock for Nexa', 'HIPAA Secure Patient Directories'],
-        accent: '#8B5CF6'
+        accent: '#0f172a'
     },
     'clara-mendez': {
         id: 'clara-mendez',
@@ -70,7 +70,7 @@ export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
             { name: 'Program Management', val: '96%' }
         ],
         projects: ['TrenchLabs Hiring Blueprint', 'Internship Tracks Program Framework'],
-        accent: '#EC4899'
+        accent: '#0f172a'
     }
 };
 

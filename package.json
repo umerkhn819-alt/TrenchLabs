@@ -4,9 +4,11 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev --prefix frontend\" \"npm run dev --prefix backend\"",
-    "build": "npm run build --prefix frontend && npm run build --prefix backend",
-    "install-all": "npm install && npm install --prefix frontend && npm install --prefix backend"
+    "dev": "npm run dev --prefix frontend",
+    "build": "npm run build --prefix frontend",
+    "install-all": "npm install && npm install --prefix frontend",
+    "supabase:serve": "supabase start",
+    "supabase:functions": "supabase functions serve --env-file ./supabase/.env.local --no-verify-jwt"
   },
   "devDependencies": {
     "concurrently": "^8.2.2"

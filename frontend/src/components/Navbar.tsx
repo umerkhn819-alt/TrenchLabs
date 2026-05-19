@@ -1,43 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Sun, Moon, Menu, X, ChevronDown, Monitor, ShoppingBag, Terminal, Cpu, BarChart2 } from 'lucide-react';
+import { Menu, X, ChevronDown, Monitor, ShoppingBag, Terminal, Cpu, BarChart2, Palette } from 'lucide-react';
+import { MagneticCTA } from './premium/MagneticCTA';
 import styles from './Navbar.module.css';
 
-function readInitialTheme(): 'dark' | 'light' {
-    if (typeof window === 'undefined') return 'dark';
-    const saved = localStorage.getItem('theme') as 'dark' | 'light' | null;
-    if (saved) return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
 export const Navbar: React.FC = () => {
-    const [theme, setTheme] = useState<'dark' | 'light'>(readInitialTheme);
     const [scrolled, setScrolled] = useState(false);
     const [mobileOpen, setMobileOpen] = useState(false);
     const [megaOpen, setMegaOpen] = useState(false);
     const location = useLocation();
 
     useEffect(() => {
-        document.documentElement.setAttribute('data-theme', theme);
-    }, [theme]);
-
-    const toggleTheme = () => {
-        const nextTheme = theme === 'dark' ? 'light' : 'dark';
-        setTheme(nextTheme);
-        document.documentElement.classList.add('theme-transitioning');
-        document.documentElement.setAttribute('data-theme', nextTheme);
-        localStorage.setItem('theme', nextTheme);
-        setTimeout(() => {
-            document.documentElement.classList.remove('theme-transitioning');
-        }, 300);
-    };
-
-    // Monitor Scroll position to shrink header
-    useEffect(() => {
         const handleScroll = () => {
-            setScrolled(window.scrollY > 40);
+            setScrolled(window.scrollY > 48);
         };
-        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
@@ -50,114 +27,121 @@ export const Navbar: React.FC = () => {
     }, [location.pathname]);
 
     const serviceItems = [
-        { name: 'Web Development', path: '/services/web-development', desc: 'React, Next.js & modern architectures.', icon: Monitor },
-        { name: 'Shopify Solutions', path: '/services/shopify', desc: 'Liquid, Headless setups, and CRO integrations.', icon: ShoppingBag },
-        { name: 'WordPress Dev', path: '/services/wordpress', desc: 'High-speed Gutenberg and custom configurations.', icon: Terminal },
-        { name: 'AI Automation', path: '/services/ai-automation', desc: 'LLM agents, scraper APIs, and zap pipelines.', icon: Cpu },
-        { name: 'Digital Marketing', path: '/services/digital-marketing', desc: 'Conversion rate models & campaign metrics.', icon: BarChart2 }
+        { name: 'Modern Web Development', path: '/services/web-development', desc: 'Fast, accessible products on modern stacks.', icon: Monitor },
+        { name: 'AI Automation Systems', path: '/services/ai-automation', desc: 'Agents, workflows, and integrations that save time.', icon: Cpu },
+        { name: 'UI/UX Design', path: '/services/ui-ux-design', desc: 'Interfaces that ship, not stall.', icon: Palette },
+        { name: 'E-Commerce Solutions', path: '/services/e-commerce', desc: 'Commerce tuned for conversion and speed.', icon: ShoppingBag },
+        { name: 'WordPress Development', path: '/services/wordpress', desc: 'Native blocks, secure CMS, lean builds.', icon: Terminal }
     ];
 
     const isActive = (path: string) => location.pathname === path;
 
     return (
         <>
-            <nav className={`${styles.navbar} ${scrolled ? styles.shrink : ''}`}>
-                <div className={styles.container}>
-                    {/* Logo Section */}
-                    <Link to="/" className={styles.logo} aria-label="TrenchLabs Home">
-                        <svg width="24" height="24" viewBox="0 0 100 100" fill="none" className={styles.logoIcon}>
-                            <rect x="15" y="15" width="70" height="70" rx="16" stroke="currentColor" strokeWidth="8" />
-                            <path d="M35 50 L50 65 L65 35" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        <span>TrenchLabs</span>
-                    </Link>
+            <nav className={`${styles.navOuter} ${scrolled ? styles.navScrolled : ''}`} aria-label="Primary">
+                <div className={styles.navInner}>
+                    <div className={styles.container}>
+                        <Link to="/" className={styles.logo} aria-label="TrenchLabs Home">
+                            <svg width="22" height="22" viewBox="0 0 100 100" fill="none" className={styles.logoIcon}>
+                                <rect x="15" y="15" width="70" height="70" rx="16" stroke="currentColor" strokeWidth="8" />
+                                <path d="M35 50 L50 65 L65 35" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                            <span>TrenchLabs</span>
+                        </Link>
 
-                    {/* Navigation Desktop Links */}
-                    <ul className={styles.navLinks}>
-                        <li><Link to="/" className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}>Home</Link></li>
-                        
-                        {/* Services Link with Mega Menu Panel */}
-                        <li 
-                            className={styles.megaLi}
-                            onMouseEnter={() => setMegaOpen(true)}
-                            onMouseLeave={() => setMegaOpen(false)}
-                        >
-                            <button className={`${styles.navLink} ${styles.megaBtn} ${location.pathname.startsWith('/services') ? styles.active : ''}`}>
-                                Services <ChevronDown size={14} className={`${styles.chevron} ${megaOpen ? styles.rotate : ''}`} />
+                        <ul className={styles.navLinks}>
+                            <li>
+                                <Link to="/" className={`${styles.navLink} ${isActive('/') ? styles.active : ''}`}>
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/services" className={`${styles.navLink} ${location.pathname.startsWith('/services') ? styles.active : ''}`}>
+                                    Services
+                                </Link>
+                            </li>
+
+                            <li>
+                                <Link to="/team" className={`${styles.navLink} ${location.pathname.startsWith('/team') ? styles.active : ''}`}>
+                                    About
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/blog" className={`${styles.navLink} ${isActive('/blog') ? styles.active : ''}`}>
+                                    Insights
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/contact" className={`${styles.navLink} ${isActive('/contact') ? styles.active : ''}`} aria-label="Contact by email, no calendar">
+                                    Contact
+                                </Link>
+                            </li>
+                        </ul>
+
+                        <div className={styles.navActions}>
+                            <MagneticCTA to="/consultation" className={`btn-premium ${styles.navCtaBtn}`}>
+                                Book a 15-minute call
+                            </MagneticCTA>
+                            <button
+                                type="button"
+                                className={styles.hamburger}
+                                onClick={() => setMobileOpen(!mobileOpen)}
+                                aria-label="Open menu"
+                            >
+                                {mobileOpen ? <X size={22} /> : <Menu size={22} />}
                             </button>
-                            {megaOpen && (
-                                <div className={styles.megaMenu}>
-                                    <div className={styles.megaGrid}>
-                                        <div className={styles.megaLeft}>
-                                            <h4>Our Capabilities</h4>
-                                            <p>We build production-ready digital systems engineered for long-term growth.</p>
-                                            <Link to="/services" className={styles.viewAll}>View All Services &rarr;</Link>
-                                        </div>
-                                        <div className={styles.megaRight}>
-                                            {serviceItems.map((item, i) => {
-                                                const Icon = item.icon;
-                                                return (
-                                                    <Link key={i} to={item.path} className={styles.megaItem}>
-                                                        <div className={styles.megaIcon}><Icon size={18} /></div>
-                                                        <div className={styles.megaText}>
-                                                            <h5>{item.name}</h5>
-                                                            <p>{item.desc}</p>
-                                                        </div>
-                                                    </Link>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </li>
-
-                        <li><Link to="/work" className={`${styles.navLink} ${location.pathname.startsWith('/work') ? styles.active : ''}`}>Work</Link></li>
-                        <li><Link to="/team" className={`${styles.navLink} ${location.pathname.startsWith('/team') ? styles.active : ''}`}>Team</Link></li>
-                        <li><Link to="/careers" className={`${styles.navLink} ${isActive('/careers') ? styles.active : ''}`}>Careers</Link></li>
-                        <li><Link to="/internship" className={`${styles.navLink} ${isActive('/internship') ? styles.active : ''}`}>Internships</Link></li>
-                        <li><Link to="/blog" className={`${styles.navLink} ${isActive('/blog') ? styles.active : ''}`}>Insights</Link></li>
-                        <li><Link to="/contact" className={`${styles.navLink} ${isActive('/contact') ? styles.active : ''}`}>Contact</Link></li>
-                    </ul>
-
-                    {/* Actions and Theme Toggles */}
-                    <div className={styles.navActions}>
-                        <button onClick={toggleTheme} className={styles.themeToggle} aria-label="Toggle theme mode">
-                            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-                        </button>
-                        <Link to="/consultation" className="btn btn-primary btn-sm">Start Project</Link>
-
-                        {/* Hamburger toggle */}
-                        <button 
-                            className={`${styles.hamburger} ${mobileOpen ? styles.hamburgerActive : ''}`} 
-                            onClick={() => setMobileOpen(!mobileOpen)}
-                            aria-label="Toggle mobile menu"
-                        >
-                            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
+                        </div>
                     </div>
                 </div>
             </nav>
 
-            {/* Mobile Navigation Panel Overlay */}
-            <div className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuActive : ''}`}>
+            <div className={`${styles.mobileMenu} ${mobileOpen ? styles.mobileMenuActive : ''}`} aria-hidden={!mobileOpen}>
+                <div className={styles.mobileTop}>
+                    <span className={styles.mobileTitle}>Menu</span>
+                    <button type="button" className={styles.mobileClose} onClick={() => setMobileOpen(false)} aria-label="Close menu">
+                        <X size={24} />
+                    </button>
+                </div>
                 <ul className={styles.mobileNavLinks}>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/services">Services</Link></li>
+                    <li>
+                        <Link to="/" onClick={() => setMobileOpen(false)}>
+                            Home
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/services" onClick={() => setMobileOpen(false)}>
+                            Services
+                        </Link>
+                    </li>
                     <ul className={styles.mobileSubLinks}>
                         {serviceItems.map((item, i) => (
-                            <li key={i}><Link to={item.path}>{item.name}</Link></li>
+                            <li key={i}>
+                                <Link to={item.path} onClick={() => setMobileOpen(false)}>
+                                    {item.name}
+                                </Link>
+                            </li>
                         ))}
                     </ul>
-                    <li><Link to="/work">Work</Link></li>
-                    <li><Link to="/team">Team</Link></li>
-                    <li><Link to="/careers">Careers</Link></li>
-                    <li><Link to="/internship">Internships</Link></li>
-                    <li><Link to="/blog">Insights</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li>
+                        <Link to="/team" onClick={() => setMobileOpen(false)}>
+                            About
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/blog" onClick={() => setMobileOpen(false)}>
+                            Insights
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/contact" onClick={() => setMobileOpen(false)} aria-label="Contact by email, no calendar">
+                            Contact
+                        </Link>
+                    </li>
                 </ul>
-                <div className={styles.mobileMenuFooter}>
-                    <Link to="/consultation" className="btn btn-primary btn-full">Book Consultation</Link>
+                <div>
+                    <MagneticCTA to="/consultation" className="btn-premium btn-full">
+                        Book a 15-minute call
+                    </MagneticCTA>
                 </div>
             </div>
         </>

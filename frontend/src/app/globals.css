@@ -1,0 +1,212 @@
+@import 'tailwindcss';
+
+@theme {
+    /* Light page canvas + sky accent (mixed with dark chrome in layout) */
+    --color-background: #f4f6fb;
+    --color-muted: #e8edf5;
+    --color-card: #ffffff;
+    --color-foreground: #0f172a;
+    --color-muted-foreground: #64748b;
+    --color-accent: #38bdf8;
+    --color-accent-secondary: #0ea5e9;
+    --color-highlight-1: #1e293b;
+    --color-highlight-2: color-mix(in srgb, #334155 50%, #0f172a);
+    --color-accent-foreground: #0b1220;
+    --color-border: rgb(15 23 42 / 0.09);
+    --color-ring: #38bdf8;
+
+    --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
+    --shadow-md: 0 4px 16px rgb(15 23 42 / 0.08);
+    --shadow-lg: 0 10px 32px rgb(15 23 42 / 0.1);
+    --shadow-xl: 0 18px 44px rgb(15 23 42 / 0.12);
+    --shadow-accent: 0 4px 16px rgb(56 189 248 / 0.28);
+    --shadow-accent-lg: 0 8px 24px rgb(56 189 248 / 0.32);
+
+    --radius-sm: 0.625rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.125rem;
+    --radius-2xl: 1.25rem;
+    --radius-full: 9999px;
+
+    --font-sans: var(--font-ui, 'Plus Jakarta Sans'), ui-sans-serif, system-ui, sans-serif;
+    --font-display: var(--font-fraunces, 'Fraunces'), ui-serif, Georgia, serif;
+    --font-mono: var(--font-jetbrains, 'JetBrains Mono'), ui-monospace, monospace;
+
+    --container-6xl: 72rem;
+}
+
+/* Legacy CSS Modules + index.css — page defaults; chrome/inset are scoped in components */
+:root {
+    --font-sans: var(--font-ui, 'Plus Jakarta Sans'), ui-sans-serif, system-ui, sans-serif;
+    --font-display: var(--font-fraunces, 'Fraunces'), ui-serif, Georgia, serif;
+    --font-mono: var(--font-jetbrains, 'JetBrains Mono'), ui-monospace, monospace;
+    --radius-sm: 0.625rem;
+    --radius-md: 0.75rem;
+    --radius-lg: 1rem;
+    --radius-full: 9999px;
+    --border-radius-sm: var(--radius-sm);
+    --border-radius-md: var(--radius-md);
+    --border-radius-lg: var(--radius-lg);
+
+    /* Dark chrome (nav, footer, hero shell) */
+    --color-chrome-bg: #0c0e12;
+    --color-chrome-muted: #141a24;
+    --color-chrome-card: #161d28;
+    --color-chrome-foreground: #f1f5f9;
+    --color-chrome-muted-foreground: #94a3b8;
+    --color-chrome-border: rgb(255 255 255 / 0.1);
+    --color-chrome-border-strong: rgb(255 255 255 / 0.16);
+
+    /* Full-width dark bands on light page */
+    --color-inset-bg: #0e1218;
+    --color-inset-muted: #141a24;
+    --color-inset-foreground: #f1f5f9;
+    --color-inset-muted-foreground: #94a3b8;
+    --color-inset-border: rgb(255 255 255 / 0.09);
+
+    --text-chrome-primary: var(--color-chrome-foreground);
+    --text-chrome-secondary: color-mix(in srgb, var(--color-chrome-muted-foreground) 72%, var(--color-chrome-foreground));
+    --text-chrome-muted: var(--color-chrome-muted-foreground);
+    --bg-chrome-subtle: color-mix(in srgb, var(--color-chrome-card) 55%, var(--color-chrome-muted));
+
+    --bg-primary: var(--color-background);
+    --bg-secondary: var(--color-muted);
+    --bg-subtle: color-mix(in srgb, var(--color-card) 88%, var(--color-muted));
+    --text-primary: var(--color-foreground);
+    --text-secondary: color-mix(in srgb, var(--color-muted-foreground) 65%, var(--color-foreground));
+    --text-muted: var(--color-muted-foreground);
+    --border-color: var(--color-border);
+    --border-hover: rgb(15 23 42 / 0.14);
+    --border-active: rgb(15 23 42 / 0.22);
+    --accent-color: var(--color-accent);
+    --accent-hover: color-mix(in srgb, var(--color-accent) 88%, #ffffff);
+    --accent-light: color-mix(in srgb, var(--color-accent) 18%, transparent);
+    --nav-bg: var(--color-chrome-card);
+    --card-shadow: var(--shadow-lg);
+    --scrollbar-track: var(--color-muted);
+    --scrollbar-thumb: color-mix(in srgb, var(--color-muted-foreground) 45%, var(--color-muted));
+    --font-geom: var(--font-display);
+    --t-fast: 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    --t-normal: 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --t-slow: 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    --container-max: 72rem;
+
+    /* Page glass (light surfaces) */
+    --glass-blur: 20px;
+    --glass-saturate: 1.25;
+    --glass-bg: color-mix(in srgb, var(--color-card) 78%, transparent);
+    --glass-bg-strong: color-mix(in srgb, var(--color-card) 92%, transparent);
+    --glass-border: rgb(15 23 42 / 0.1);
+    --glass-inset: inset 0 1px 0 rgb(255 255 255 / 0.95);
+    --shadow-glass-deep: 0 14px 40px rgb(15 23 42 / 0.1);
+
+    /* Chrome glass (nav, menus — over light scroll or dark hero) */
+    --glass-chrome-bg: color-mix(in srgb, var(--color-chrome-card) 72%, transparent);
+    --glass-chrome-bg-strong: color-mix(in srgb, var(--color-chrome-card) 82%, transparent);
+    --glass-chrome-border: rgb(255 255 255 / 0.14);
+    --glass-chrome-inset: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    --shadow-glass-chrome: 0 12px 40px rgb(0 0 0 / 0.38);
+    --shadow-glass-chrome-lg: 0 18px 48px rgb(0 0 0 / 0.45);
+
+    /* ── Premium glow & accent extensions ── */
+    --accent-glow: 0 0 24px rgb(56 189 248 / 0.38), 0 0 48px rgb(56 189 248 / 0.18);
+    --accent-glow-lg: 0 0 40px rgb(56 189 248 / 0.45), 0 0 80px rgb(56 189 248 / 0.22);
+    --accent-glow-sm: 0 0 12px rgb(56 189 248 / 0.28);
+    --shadow-2xl: 0 28px 64px rgb(15 23 42 / 0.16);
+    --shadow-3xl: 0 40px 80px rgb(15 23 42 / 0.22);
+    --shadow-inset-shine: inset 0 1px 0 rgb(255 255 255 / 0.85), inset 0 -1px 0 rgb(15 23 42 / 0.06);
+    --gradient-hero-top: radial-gradient(ellipse 80% 60% at 50% -10%, rgb(56 189 248 / 0.14) 0%, transparent 70%);
+    --gradient-accent-fade: linear-gradient(135deg, rgb(56 189 248 / 0.12) 0%, rgb(14 165 233 / 0.06) 50%, transparent 100%);
+    --noise-opacity: 0.03;
+    --easing-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --easing-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --whatsapp-green: #25d366;
+    --whatsapp-green-dark: #128c7e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --glass-blur: 0px;
+        --glass-saturate: 1;
+    }
+}
+
+@layer components {
+    .gradient-text-ds {
+        background: linear-gradient(to right,
+                var(--color-foreground),
+                color-mix(in srgb, var(--color-muted-foreground) 45%, var(--color-foreground)));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+
+    /* Soft emphasis band on light canvas (optional promos) */
+    .ds-inverted {
+        background-color: color-mix(in srgb, var(--color-muted) 88%, var(--color-card));
+        color: var(--color-foreground);
+    }
+
+    /* Dark band on light canvas — stats, workflow, testimonials, etc. */
+    .ds-inset-dark {
+        --text-primary: var(--color-inset-foreground);
+        --text-secondary: var(--color-inset-muted-foreground);
+        --text-muted: color-mix(in srgb, var(--color-inset-muted-foreground) 88%, var(--color-inset-foreground));
+        --color-foreground: var(--color-inset-foreground);
+        --color-muted-foreground: var(--color-inset-muted-foreground);
+        --color-card: var(--color-inset-muted);
+        --color-muted: color-mix(in srgb, var(--color-inset-muted) 85%, var(--color-inset-bg));
+        --border-color: var(--color-inset-border);
+        --border-hover: rgb(255 255 255 / 0.18);
+        --border-active: rgb(255 255 255 / 0.24);
+        --bg-primary: var(--color-inset-bg);
+        --bg-secondary: var(--color-inset-muted);
+        --bg-subtle: color-mix(in srgb, var(--color-inset-muted) 65%, var(--color-inset-bg));
+        --glass-bg: var(--glass-chrome-bg);
+        --glass-bg-strong: var(--glass-chrome-bg-strong);
+        --glass-border: var(--glass-chrome-border);
+        --glass-inset: var(--glass-chrome-inset);
+        --shadow-glass-deep: var(--shadow-glass-chrome-lg);
+        background-color: var(--color-inset-bg);
+        color: var(--color-inset-foreground);
+    }
+
+    .ds-inset-dark .ds-dot-texture {
+        background-image: radial-gradient(circle,
+                rgb(255 255 255 / 0.1) 1px,
+                transparent 1px);
+    }
+
+    .ds-dot-texture {
+        background-image: radial-gradient(circle,
+                rgb(15 23 42 / 0.08) 1px,
+                transparent 1px);
+        background-size: 32px 32px;
+        opacity: 0.35;
+    }
+
+    .card-brand-silhouette {
+        border-radius: 1.25rem 0.5rem 0.5rem 1.25rem;
+    }
+
+    @supports (backdrop-filter: blur(1px)) {
+        .glass-surface {
+            background: var(--glass-bg);
+            backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-glass-deep), var(--glass-inset);
+        }
+
+        .glass-surface-strong {
+            background: var(--glass-bg-strong);
+            backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow-lg), var(--glass-inset);
+        }
+    }
+}
+
+@import '../index.css';

@@ -54,6 +54,7 @@ CREATE TABLE IF NOT EXISTS consultation_bookings (
     company TEXT NOT NULL,
     contact TEXT NOT NULL,
     email TEXT NOT NULL,
+    phone TEXT,
     status TEXT NOT NULL DEFAULT 'Scheduled' CHECK (status IN ('Scheduled', 'Completed', 'Cancelled')),
     meeting_link TEXT NOT NULL
 );
