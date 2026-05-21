@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Fraunces, Plus_Jakarta_Sans, JetBrains_Mono } from 'next/font/google';
+import { Analytics } from '@vercel/analytics/next';
 import './globals.css';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -33,7 +34,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en" className={`${plusJakartaSans.variable} ${fraunces.variable} ${jetbrainsMono.variable}`} suppressHydrationWarning>
-            <body className={`${plusJakartaSans.className} bg-background text-foreground antialiased`}>{children}</body>
+            <body className={`${plusJakartaSans.className} bg-background text-foreground antialiased`}>
+                {children}
+                <Analytics />
+            </body>
         </html>
     );
 }
