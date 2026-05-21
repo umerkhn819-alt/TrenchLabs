@@ -112,8 +112,8 @@ export const CaseStudyDetail: React.FC = () => {
                                     <div className={styles.metricIconWrap} style={{ color: study.accent, backgroundColor: `${study.accent}12` }}>
                                         <TrendingUp size={22} />
                                     </div>
-                                    <div className={styles.metricValue} style={{ color: study.accent }}>{m}</div>
-                                    <p className={styles.metricLabel}>Verified production metric following the final launch cycle deployment.</p>
+                                    <div className={styles.metricValue} style={{ color: study.accent }}>{m.val}</div>
+                                    <p className={styles.metricLabel}>{m.desc}</p>
                                 </div>
                             </CinematicCard>
                         ))}

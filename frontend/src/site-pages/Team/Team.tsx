@@ -10,7 +10,7 @@ import { Seo } from '../../components/Seo';
 import { GlowBadge } from '../../components/ui/GlowBadge';
 import { StatCounter } from '../../components/ui/StatCounter';
 import { GridOverlay } from '../../components/effects/GridOverlay';
-import { TEAM_EXPERTS } from '../../content/team';
+import { TEAM_EXPERTS, TEAM_MEMBERS_BY_ID } from '../../content/team';
 import styles from './Team.module.css';
 
 const VALUES = [
@@ -104,7 +104,7 @@ export const Team: React.FC = () => {
                                     </div>
                                     <div className={styles.teamCardBody}>
                                         <h3>{mem.name}</h3>
-                                        <p>{mem.shortDesc}</p>
+                                        <p>{TEAM_MEMBERS_BY_ID[mem.id]?.philosophy}</p>
                                         <span className={styles.teamCardCta}>Full profile &rarr;</span>
                                     </div>
                                 </Link>
