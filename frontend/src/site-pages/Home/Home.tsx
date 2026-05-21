@@ -14,7 +14,11 @@ import { StatCounter } from '../../components/ui/StatCounter';
 import { FAQAccordion } from '../../components/ui/FAQAccordion';
 import { TECH_LOGOS } from '../../components/ui/TechLogoSVGs';
 import { Transitions } from '../../components/Transitions';
-import { fadeInUp, staggerContainer } from '../../lib/motion';
+import { fadeInUp, staggerContainer, cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
+import { CinematicCard } from '../../components/effects/CinematicCard';
+import { SplashReveal } from '../../components/effects/SplashReveal';
+import { TEAM_EXPERTS } from '../../content/team';
+import teamStyles from '../Team/Team.module.css';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import styles from './Home.module.css';
@@ -160,6 +164,8 @@ export const Home: React.FC = () => {
                     path="/"
                 />
 
+                <SplashReveal />
+
                 {/* ─── HERO ──────────────────────────────────────────────────── */}
                 <header ref={heroRef} className={styles.hero}>
 
@@ -204,6 +210,54 @@ export const Home: React.FC = () => {
 
                     </div>
                 </header>
+
+                {/* ─── TEAM SECTION ─────────────────────────────────────────────── */}
+                <section className={teamStyles.gridSection} style={{ paddingBottom: '2rem' }}>
+                    <div className="container">
+                        <motion.div 
+                            className={teamStyles.sectionHeader}
+                            variants={cinematicUp}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={viewportOnce}
+                        >
+                            <div>
+                                <span className="section-tagline">Leadership</span>
+                                <h2 className="section-title">Who you work with</h2>
+                            </div>
+                        </motion.div>
+                        <motion.div 
+                            className={teamStyles.grid}
+                            variants={cinematicStagger}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={viewportOnce}
+                        >
+                            {TEAM_EXPERTS.map((mem, idx) => (
+                                <CinematicCard key={mem.id} delay={idx * 0.1}>
+                                    <Link to={`/team/${mem.id}`} className={teamStyles.teamCard}>
+                                        <div className={teamStyles.teamCardPhoto}>
+                                            {mem.photo ? (
+                                                <img src={mem.photo} alt={mem.name} className={teamStyles.teamCardImg} />
+                                            ) : (
+                                                <div className={teamStyles.teamCardPlaceholder}>
+                                                    <span>{mem.name.charAt(0)}</span>
+                                                </div>
+                                            )}
+                                            <span className={teamStyles.roleBadge}>{mem.role}</span>
+                                        </div>
+                                        <div className={teamStyles.teamCardBody}>
+                                            <h3>{mem.name}</h3>
+                                            <span className={teamStyles.teamCardCta}>
+                                                Full profile &rarr;
+                                            </span>
+                                        </div>
+                                    </Link>
+                                </CinematicCard>
+                            ))}
+                        </motion.div>
+                    </div>
+                </section>
 
                 {/* ─── STATS (dark band) ───────────────────────────────────────── */}
                 <section className={`${styles.statsSection} section-inset`}>
@@ -336,18 +390,26 @@ export const Home: React.FC = () => {
                                 <h2 className="section-title reveal-clip">From idea to shipped system</h2>
                             </div>
                         </div>
-                        <div className={styles.processGrid}>
+                        <motion.div 
+                            className={styles.processGrid}
+                            variants={cinematicStagger}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={viewportOnce}
+                        >
                             {processSteps.map((step, i) => (
-                                <div key={step.n} className={`${styles.processNode} reveal`}>
-                                    <div className={styles.processNodeNum}>{step.n}</div>
-                                    {i < processSteps.length - 1 && <div className={styles.processConnector} />}
-                                    <div className={styles.processContent}>
-                                        <h4>{step.t}</h4>
-                                        <p>{step.b}</p>
+                                <CinematicCard key={step.n} delay={i * 0.1}>
+                                    <div className={styles.processNode}>
+                                        <div className={styles.processNodeWatermark}>{step.n}</div>
+                                        <div className={styles.processContent}>
+                                            <span className={styles.processStepAccent}>Phase {step.n}</span>
+                                            <h4>{step.t}</h4>
+                                            <p>{step.b}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </CinematicCard>
                             ))}
-                        </div>
+                        </motion.div>
                     </div>
                 </section>
 
@@ -393,25 +455,7 @@ export const Home: React.FC = () => {
                     </div>
                 </section>
 
-                {/* ─── CTA BAND ───────────────────────────────────────────────── */}
-                <section className={`${styles.ctaBand} section-inset`} style={{ overflow: 'hidden', position: 'relative' }}>
 
-                    <div className="container" style={{ position: 'relative', zIndex: 2, textAlign: 'center' }}>
-                        <div className={`${styles.ctaBandInner} ${styles.ctaAnimatedInner}`}>
-                            <GlowBadge variant="accent" pulse>Ready to build?</GlowBadge>
-                            <h2 className={styles.ctaBandTitle}>Let's build something that lasts</h2>
-                            <p className={styles.ctaBandDesc}>15 minutes beats a long thread when you need a clear yes/no on fit.</p>
-                            <div className={styles.ctaBandActions}>
-                                <MagneticCTA to="/consultation" className="btn-premium">
-                                    Book a 15-minute call <ArrowRight size={16} />
-                                </MagneticCTA>
-                                <Link to="/contact" className={styles.ctaBandSecondaryBtn}>
-                                    Email us
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </section>
             </div>
         </Transitions>
     );

@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Mail, MapPin, CheckCircle, Loader2, ArrowRight, Clock, Phone } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
+import { CinematicText } from '../../components/effects/CinematicText';
+import { CinematicCard } from '../../components/effects/CinematicCard';
 import { Seo } from '../../components/Seo';
 import { AppController } from '../../controllers/AppController';
 import { GlowBadge } from '../../components/ui/GlowBadge';
@@ -47,23 +51,37 @@ export const Contact: React.FC = () => {
             <section className={styles.hero}>
                 <GridOverlay opacity={0.05} />
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <GlowBadge variant="accent" pulse>Get in touch</GlowBadge>
-                    <h1 className={styles.heroTitle}>Let's build something</h1>
-                    <p className={styles.heroDesc}>
-                        If you're not ready to book a slot, email is fine—I still read them myself.
-                        We typically reply within a business day.
-                    </p>
+                    <motion.div
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div variants={cinematicUp}>
+                            <GlowBadge variant="accent" pulse>Get in touch</GlowBadge>
+                        </motion.div>
+                        <motion.h1 variants={cinematicUp} className={styles.heroTitle}>Let's build something</motion.h1>
+                        <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>
+                            If you're not ready to book a slot, email is fine—I still read them myself.
+                            We typically reply within a business day.
+                        </CinematicText>
+                    </motion.div>
                 </div>
             </section>
 
             <section className={styles.contactSection}>
                 <div className="container">
-                    <div className={styles.grid}>
+                    <motion.div 
+                        className={styles.grid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
 
                         {/* ─── Info column ─── */}
-                        <div className={styles.infoCol}>
+                        <motion.div className={styles.infoCol} variants={cinematicUp}>
                             <h2 className={styles.infoTitle}>Reach us directly</h2>
-                            <p className={styles.infoSub}>Prefer async? Email or WhatsApp—no calendar required.</p>
+                            <CinematicText as="p" className={styles.infoSub}>Prefer async? Email or WhatsApp—no calendar required.</CinematicText>
 
                             <div className={styles.infoCards}>
                                 <a href="mailto:hello@trenchlabs.com" className={styles.infoCard}>
@@ -110,15 +128,15 @@ export const Contact: React.FC = () => {
                                     </div>
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
 
                         {/* ─── Form column ─── */}
-                        <div className={styles.formCol}>
+                        <CinematicCard delay={0.2} className={styles.formCol}>
                             {!isSuccess ? (
                                 <form onSubmit={handleSubmit} className={styles.form}>
                                     <div className={styles.formHeader}>
                                         <h3>Send a message</h3>
-                                        <p>Tell us what you're building and we'll get back to you with a clear next step.</p>
+                                        <CinematicText as="p">Tell us what you're building and we'll get back to you with a clear next step.</CinematicText>
                                     </div>
 
                                     <div className={styles.formRow}>
@@ -178,8 +196,8 @@ export const Contact: React.FC = () => {
                                     </button>
                                 </div>
                             )}
-                        </div>
-                    </div>
+                        </CinematicCard>
+                    </motion.div>
                 </div>
             </section>
         </Transitions>

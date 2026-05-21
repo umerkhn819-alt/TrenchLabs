@@ -221,7 +221,7 @@ h6 {
     width: 100%;
 }
 
-/* Primary CTA — slate gradient */
+/* Primary CTA — stark white for dark theme contrast */
 .btn-premium {
     display: inline-flex;
     align-items: center;
@@ -234,18 +234,18 @@ h6 {
     letter-spacing: 0.02em;
     border-radius: 999px;
     border: none;
-    background: #11414e;
-    color: #ffffff;
+    background: #ffffff;
+    color: #050505;
     text-decoration: none;
     cursor: pointer;
-    box-shadow: 0 10px 25px rgba(17, 65, 78, 0.25);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
     transition: transform var(--t-fast), box-shadow var(--t-fast), filter var(--t-fast);
 }
 
 .btn-premium:hover {
     transform: translateY(-2px);
-    filter: brightness(1.1);
-    box-shadow: 0 15px 35px rgba(17, 65, 78, 0.35);
+    filter: brightness(0.95);
+    box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
 }
 
 /* Form Elements */

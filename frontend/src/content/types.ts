@@ -75,10 +75,12 @@ export type TeamMemberDetail = {
 };
 
 export type BlogPostCard = {
+    slug: string;
     title: string;
     tag: string;
     date: string;
     read: string;
     desc: string;
+    content: string;
     image?: string;
 };

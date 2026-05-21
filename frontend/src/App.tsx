@@ -26,6 +26,7 @@ gsap.registerPlugin(ScrollTrigger);
 const ServiceDetail = lazy(() => import('./site-pages/ServiceDetail/ServiceDetail'));
 const CaseStudyDetail = lazy(() => import('./site-pages/CaseStudyDetail/CaseStudyDetail'));
 const Blog = lazy(() => import('./site-pages/Blog/Blog'));
+const BlogPost = lazy(() => import('./site-pages/BlogPost/BlogPost'));
 const Admin = lazy(() => import('./features/admin/Admin'));
 
 // Scroll Restorator
@@ -95,6 +96,7 @@ const AppContent: React.FC = () => {
                         <Route path="/contact" element={<Contact />} />
                         <Route path="/consultation" element={<Consultation />} />
                         <Route path="/blog" element={<Blog />} />
+                        <Route path="/blog/:slug" element={<BlogPost />} />
                         <Route path="/privacy" element={<Privacy />} />
                         <Route path="/terms" element={<Terms />} />
                         <Route path="/admin" element={<Admin />} />

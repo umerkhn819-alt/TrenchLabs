@@ -1,26 +1,26 @@
 @import 'tailwindcss';
 
 @theme {
-    /* Light page canvas + sky accent (mixed with dark chrome in layout) */
-    --color-background: #f4f6fb;
-    --color-muted: #e8edf5;
-    --color-card: #ffffff;
-    --color-foreground: #0f172a;
-    --color-muted-foreground: #64748b;
+    /* Dark page canvas + accent */
+    --color-background: #080a0d;
+    --color-muted: #11141a;
+    --color-card: #0c0e12;
+    --color-foreground: #f8fafc;
+    --color-muted-foreground: #94a3b8;
     --color-accent: #38bdf8;
     --color-accent-secondary: #0ea5e9;
     --color-highlight-1: #1e293b;
-    --color-highlight-2: color-mix(in srgb, #334155 50%, #0f172a);
-    --color-accent-foreground: #0b1220;
-    --color-border: rgb(15 23 42 / 0.09);
+    --color-highlight-2: color-mix(in srgb, #334155 50%, #080a0d);
+    --color-accent-foreground: #080a0d;
+    --color-border: rgb(255 255 255 / 0.1);
     --color-ring: #38bdf8;
 
-    --shadow-sm: 0 1px 2px rgb(15 23 42 / 0.06);
-    --shadow-md: 0 4px 16px rgb(15 23 42 / 0.08);
-    --shadow-lg: 0 10px 32px rgb(15 23 42 / 0.1);
-    --shadow-xl: 0 18px 44px rgb(15 23 42 / 0.12);
-    --shadow-accent: 0 4px 16px rgb(56 189 248 / 0.28);
-    --shadow-accent-lg: 0 8px 24px rgb(56 189 248 / 0.32);
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
+    --shadow-md: 0 4px 16px rgb(0 0 0 / 0.5);
+    --shadow-lg: 0 10px 32px rgb(0 0 0 / 0.6);
+    --shadow-xl: 0 18px 44px rgb(0 0 0 / 0.7);
+    --shadow-accent: 0 4px 16px rgb(56 189 248 / 0.2);
+    --shadow-accent-lg: 0 8px 24px rgb(56 189 248 / 0.3);
 
     --radius-sm: 0.625rem;
     --radius-md: 0.75rem;
@@ -58,12 +58,12 @@
     --color-chrome-border: rgb(255 255 255 / 0.1);
     --color-chrome-border-strong: rgb(255 255 255 / 0.16);
 
-    /* Full-width dark bands on light page */
-    --color-inset-bg: #0e1218;
-    --color-inset-muted: #141a24;
-    --color-inset-foreground: #f1f5f9;
+    /* Full-width dark bands on light page (Legacy, but kept for dark compatibility) */
+    --color-inset-bg: #0c0e12;
+    --color-inset-muted: #11141a;
+    --color-inset-foreground: #f8fafc;
     --color-inset-muted-foreground: #94a3b8;
-    --color-inset-border: rgb(255 255 255 / 0.09);
+    --color-inset-border: rgb(255 255 255 / 0.1);
 
     --text-chrome-primary: var(--color-chrome-foreground);
     --text-chrome-secondary: color-mix(in srgb, var(--color-chrome-muted-foreground) 72%, var(--color-chrome-foreground));
@@ -77,8 +77,8 @@
     --text-secondary: color-mix(in srgb, var(--color-muted-foreground) 65%, var(--color-foreground));
     --text-muted: var(--color-muted-foreground);
     --border-color: var(--color-border);
-    --border-hover: rgb(15 23 42 / 0.14);
-    --border-active: rgb(15 23 42 / 0.22);
+    --border-hover: rgb(255 255 255 / 0.18);
+    --border-active: rgb(255 255 255 / 0.26);
     --accent-color: var(--color-accent);
     --accent-hover: color-mix(in srgb, var(--color-accent) 88%, #ffffff);
     --accent-light: color-mix(in srgb, var(--color-accent) 18%, transparent);
@@ -92,14 +92,14 @@
     --t-slow: 0.55s cubic-bezier(0.16, 1, 0.3, 1);
     --container-max: 72rem;
 
-    /* Page glass (light surfaces) */
+    /* Page glass (now dark mode adapted) */
     --glass-blur: 20px;
     --glass-saturate: 1.25;
     --glass-bg: color-mix(in srgb, var(--color-card) 78%, transparent);
     --glass-bg-strong: color-mix(in srgb, var(--color-card) 92%, transparent);
-    --glass-border: rgb(15 23 42 / 0.1);
-    --glass-inset: inset 0 1px 0 rgb(255 255 255 / 0.95);
-    --shadow-glass-deep: 0 14px 40px rgb(15 23 42 / 0.1);
+    --glass-border: rgb(255 255 255 / 0.1);
+    --glass-inset: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    --shadow-glass-deep: 0 14px 40px rgb(0 0 0 / 0.3);
 
     /* Chrome glass (nav, menus — over light scroll or dark hero) */
     --glass-chrome-bg: color-mix(in srgb, var(--color-chrome-card) 72%, transparent);
@@ -113,9 +113,9 @@
     --accent-glow: 0 0 24px rgb(56 189 248 / 0.38), 0 0 48px rgb(56 189 248 / 0.18);
     --accent-glow-lg: 0 0 40px rgb(56 189 248 / 0.45), 0 0 80px rgb(56 189 248 / 0.22);
     --accent-glow-sm: 0 0 12px rgb(56 189 248 / 0.28);
-    --shadow-2xl: 0 28px 64px rgb(15 23 42 / 0.16);
-    --shadow-3xl: 0 40px 80px rgb(15 23 42 / 0.22);
-    --shadow-inset-shine: inset 0 1px 0 rgb(255 255 255 / 0.85), inset 0 -1px 0 rgb(15 23 42 / 0.06);
+    --shadow-2xl: 0 28px 64px rgb(0 0 0 / 0.6);
+    --shadow-3xl: 0 40px 80px rgb(0 0 0 / 0.7);
+    --shadow-inset-shine: inset 0 1px 0 rgb(255 255 255 / 0.1), inset 0 -1px 0 rgb(0 0 0 / 0.4);
     --gradient-hero-top: radial-gradient(ellipse 80% 60% at 50% -10%, rgb(56 189 248 / 0.14) 0%, transparent 70%);
     --gradient-accent-fade: linear-gradient(135deg, rgb(56 189 248 / 0.12) 0%, rgb(14 165 233 / 0.06) 50%, transparent 100%);
     --noise-opacity: 0.03;

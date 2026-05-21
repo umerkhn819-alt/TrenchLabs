@@ -2,7 +2,7 @@
 .hero {
     position: relative;
     padding: clamp(9rem, 13vw, 11rem) 0 clamp(4rem, 6vw, 5rem);
-    background: #f4f6fb;
+    background: none;
 }
 
 .heroInner {
@@ -21,7 +21,7 @@
     font-family: var(--font-sans);
     font-size: clamp(2.5rem, 5vw, 3.75rem);
     font-weight: 800;
-    color: #0f172a;
+    color: var(--text-primary);
     letter-spacing: -0.03em;
     margin: 0 0 1rem;
 }
@@ -29,7 +29,7 @@
 .heroDesc {
     font-family: var(--font-sans);
     font-size: clamp(1.05rem, 2vw, 1.15rem);
-    color: #64748b;
+    color: var(--text-secondary);
     line-height: 1.65;
     margin: 0;
 }
@@ -65,7 +65,7 @@
 /* ─── GRID SECTION ─────────────────────────────────────────────── */
 .gridSection {
     padding: 2rem 0 clamp(6rem, 10vw, 8rem);
-    background: #f4f6fb;
+    background: none;
 }
 
 .grid {
@@ -82,10 +82,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background: #ffffff;
-    color: #0f172a;
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+    background: var(--glass-bg-strong);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass-deep);
     border-radius: 24px;
     padding: 2.5rem 2.25rem;
     height: 100%;
@@ -96,11 +96,10 @@
 }
 
 .card:hover {
-    background: #111827;
-    color: #ffffff;
+    background: rgba(255, 255, 255, 0.03);
     transform: translateY(-4px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
-    border-color: transparent;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
     z-index: 10;
 }
 
@@ -112,12 +111,12 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: #0f172a;
+    color: var(--text-primary);
     transition: color 0.5s ease;
 }
 
 .card:hover .iconCircle {
-    color: #ffffff;
+    color: var(--color-accent);
 }
 
 .cardContent {
@@ -133,7 +132,7 @@
     font-weight: 700;
     margin: 0;
     letter-spacing: -0.02em;
-    color: #0f172a;
+    color: var(--text-primary);
     transition: color 0.5s ease;
 }
 
@@ -146,7 +145,7 @@
     font-size: 0.95rem;
     line-height: 1.65;
     margin: 0;
-    color: #64748b;
+    color: var(--text-secondary);
     transition: color 0.5s ease;
 }
 
@@ -167,12 +166,12 @@
     font-family: var(--font-sans);
     font-size: 0.95rem;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--text-primary);
     transition: all 0.5s ease;
 }
 
 .card:hover .exploreLink {
-    color: #6ee7b7;
+    color: var(--color-accent);
     gap: 0.65rem;
 }
 

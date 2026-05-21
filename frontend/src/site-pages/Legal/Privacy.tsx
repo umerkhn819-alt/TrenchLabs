@@ -1,6 +1,9 @@
 import React from 'react';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp } from '../../lib/motion';
 import { Seo } from '../../components/Seo';
+import { CinematicText } from '../../components/effects/CinematicText';
 import styles from './Legal.module.css';
 
 export const Privacy: React.FC = () => (
@@ -11,10 +14,15 @@ export const Privacy: React.FC = () => (
             path="/privacy"
         />
         <section className={styles.wrap}>
-            <div className="container">
-                <h1 className="section-title gradient-text">Privacy Policy</h1>
-                <p className={styles.meta}>Last updated: May 10, 2026</p>
-                <div className={styles.body}>
+            <motion.div 
+                className="container"
+                variants={cinematicStagger}
+                initial="hidden"
+                animate="show"
+            >
+                <motion.h1 variants={cinematicUp} className="section-title gradient-text">Privacy Policy</motion.h1>
+                <motion.p variants={cinematicUp} className={styles.meta}>Last updated: May 10, 2026</motion.p>
+                <motion.div variants={cinematicUp} className={styles.body}>
                     <p>
                         TrenchLabs (&quot;we&quot;, &quot;us&quot;) operates this website. This policy describes how we may collect,
                         use, and protect information you submit through contact forms, career applications, internship
@@ -40,8 +48,8 @@ export const Privacy: React.FC = () => (
                     <p>
                         Questions: <a href="mailto:hello@trenchlabs.com">hello@trenchlabs.com</a>
                     </p>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </section>
     </Transitions>
 );

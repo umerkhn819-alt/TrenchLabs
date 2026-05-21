@@ -24,7 +24,11 @@ export class AppController {
             'Content-Type': 'application/json',
             ...extra
         };
-        const token = localStorage.getItem('trench_admin_token');
+        // Retrieve token from cookie first, fallback to localStorage
+        const token = 
+            document.cookie.split('; ').find(row => row.startsWith('trench_admin_token='))?.split('=')[1] || 
+            localStorage.getItem('trench_admin_token');
+            
         if (token) {
             headers['Authorization'] = `Bearer ${token}`;
         }
@@ -48,6 +52,7 @@ export class AppController {
             }
             if (data && data.token) {
                 localStorage.setItem('trench_admin_token', data.token);
+                document.cookie = `trench_admin_token=${data.token}; path=/; max-age=86400; secure; samesite=strict`;
                 return { ok: true };
             }
             return { ok: false };
@@ -58,10 +63,12 @@ export class AppController {
 
     static logoutAdmin() {
         localStorage.removeItem('trench_admin_token');
+        document.cookie = 'trench_admin_token=; path=/; max-age=0';
     }
 
     static isAuthenticated(): boolean {
-        return !!localStorage.getItem('trench_admin_token');
+        const cookieToken = document.cookie.split('; ').find(row => row.startsWith('trench_admin_token='))?.split('=')[1];
+        return !!(cookieToken || localStorage.getItem('trench_admin_token'));
     }
 
     // CONTACTS CONTROLLERS

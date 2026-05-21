@@ -1,6 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { Calendar as CalendarIcon, Clock, CheckCircle, Loader2, ArrowRight } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
+import { CinematicText } from '../../components/effects/CinematicText';
+import { CinematicCard } from '../../components/effects/CinematicCard';
 import { Seo } from '../../components/Seo';
 import { AppController } from '../../controllers/AppController';
 import { GlowBadge } from '../../components/ui/GlowBadge';
@@ -69,17 +73,26 @@ export const Consultation: React.FC = () => {
             <section className={styles.hero}>
                 <GridOverlay opacity={0.05} />
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <GlowBadge variant="accent" pulse>15-minute call</GlowBadge>
-                    <h1 className={styles.heroTitle}>Pick a time. We'll handle the rest.</h1>
-                    <p className={styles.heroDesc}>
-                        Fast to schedule, serious about the work—expect direct questions and straight answers.
-                    </p>
+                    <motion.div
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div variants={cinematicUp}>
+                            <GlowBadge variant="accent" pulse>15-minute call</GlowBadge>
+                        </motion.div>
+                        <motion.h1 variants={cinematicUp} className={styles.heroTitle}>Pick a time. We'll handle the rest.</motion.h1>
+                        <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>
+                            Fast to schedule, serious about the work—expect direct questions and straight answers.
+                        </CinematicText>
+                    </motion.div>
                 </div>
             </section>
 
             <section className={styles.calendarSection}>
                 <div className="container">
-                    <div className={styles.schedulerCard}>
+                    <CinematicCard delay={0.1}>
+                        <div className={styles.schedulerCard}>
                         {!isConfirmed ? (
                             <div className={styles.schedulerGrid}>
                                 <div className={styles.pickerPane}>
@@ -199,7 +212,8 @@ export const Consultation: React.FC = () => {
                                 </button>
                             </div>
                         )}
-                    </div>
+                        </div>
+                    </CinematicCard>
                 </div>
             </section>
         </Transitions>

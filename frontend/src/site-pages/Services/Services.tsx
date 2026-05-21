@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
+import { CinematicText } from '../../components/effects/CinematicText';
+import { CinematicCard } from '../../components/effects/CinematicCard';
 import { Seo } from '../../components/Seo';
 import { FAQAccordion } from '../../components/ui/FAQAccordion';
 import { FloatCard } from '../../components/effects/FloatCard';
@@ -29,60 +33,86 @@ export const Services: React.FC = () => {
 
             <section className={styles.hero}>
                 <div className="container">
-                    <div className={styles.heroInner}>
-                        <div className={styles.heroLeft}>
+                    <motion.div 
+                        className={styles.heroInner}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div className={styles.heroLeft} variants={cinematicUp}>
                             <h1 className={styles.heroTitle}>Our Services</h1>
-                            <p className={styles.heroDesc}>
+                            <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>
                                 Unleashing Comprehensive Digital Marketing Services Tailored to Elevate Your Online Presence and Boost Your Success.
-                            </p>
-                        </div>
-                        <div className={styles.heroRight}>
+                            </CinematicText>
+                        </motion.div>
+                        <motion.div className={styles.heroRight} variants={cinematicUp}>
                             <Link to="/consultation" className={styles.heroCta}>
                                 Get Started
                             </Link>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             <section className={styles.gridSection}>
                 <div className="container">
-                    <div className={styles.grid}>
-                        {SERVICE_SUMMARIES.map((srv) => {
+                    <motion.div 
+                        className={styles.grid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        {SERVICE_SUMMARIES.map((srv, idx) => {
                             const Icon = getServiceIcon(srv.icon);
                             return (
-                                <FloatCard key={srv.id} className={styles.cardWrap}>
-                                    <Link to={`/services/${srv.id}`} className={styles.card}>
-                                        <div className={styles.cardHeader}>
-                                            <div className={styles.iconCircle}>
-                                                <Icon size={28} strokeWidth={2.25} />
+                                <CinematicCard key={srv.id} delay={idx * 0.1}>
+                                    <FloatCard className={styles.cardWrap}>
+                                        <Link to={`/services/${srv.id}`} className={styles.card}>
+                                            <div className={styles.cardHeader}>
+                                                <div className={styles.iconCircle}>
+                                                    <Icon size={28} strokeWidth={2.25} />
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div className={styles.cardContent}>
-                                            <h2 className={styles.cardTitle}>{srv.name}</h2>
-                                            <p className={styles.cardDesc}>{srv.desc}</p>
-                                        </div>
-                                        <div className={styles.cardFooter}>
-                                            <span className={styles.exploreLink}>
-                                                Learn more <ArrowRight size={14} />
-                                            </span>
-                                        </div>
-                                    </Link>
-                                </FloatCard>
+                                            <div className={styles.cardContent}>
+                                                <h2 className={styles.cardTitle}>{srv.name}</h2>
+                                                <p className={styles.cardDesc}>{srv.desc}</p>
+                                            </div>
+                                            <div className={styles.cardFooter}>
+                                                <span className={styles.exploreLink}>
+                                                    Learn more <ArrowRight size={14} />
+                                                </span>
+                                            </div>
+                                        </Link>
+                                    </FloatCard>
+                                </CinematicCard>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             <section className={styles.faqSection}>
                 <div className="container">
-                    <div className={styles.faqHeader}>
+                    <motion.div 
+                        className={styles.faqHeader}
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         <span className="section-tagline">FAQ</span>
-                        <h2 className="section-title reveal-clip">Common questions</h2>
-                        <p className="section-desc">Everything you need to know about working with TrenchLabs.</p>
-                    </div>
-                    <FAQAccordion items={FAQ_ITEMS} className={styles.faqList} />
+                        <h2 className="section-title">Common questions</h2>
+                        <CinematicText as="p" className="section-desc">Everything you need to know about working with TrenchLabs.</CinematicText>
+                    </motion.div>
+                    <motion.div
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        <FAQAccordion items={FAQ_ITEMS} className={styles.faqList} />
+                    </motion.div>
                 </div>
             </section>
         </Transitions>

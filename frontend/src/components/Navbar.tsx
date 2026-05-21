@@ -42,10 +42,7 @@ export const Navbar: React.FC = () => {
                 <div className={styles.navInner}>
                     <div className={styles.container}>
                         <Link to="/" className={styles.logo} aria-label="TrenchLabs Home">
-                            <svg width="22" height="22" viewBox="0 0 100 100" fill="none" className={styles.logoIcon}>
-                                <rect x="15" y="15" width="70" height="70" rx="16" stroke="currentColor" strokeWidth="8" />
-                                <path d="M35 50 L50 65 L65 35" stroke="currentColor" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
-                            </svg>
+                            <img src="/trenchlabs-logo-transparent.png" alt="TrenchLabs Logo" style={{ height: '24px' }} className={styles.logoIcon} />
                             <span>TrenchLabs</span>
                         </Link>
 

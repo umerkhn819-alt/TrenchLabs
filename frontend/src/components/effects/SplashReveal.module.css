@@ -1,0 +1,93 @@
+.splashContainer {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--color-chrome-bg);
+    color: var(--color-chrome-foreground);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 50; /* Above typical content, but below nav if we want nav to show, or above nav */
+}
+
+/* Ensure the splash can be clipped beautifully */
+.splashClip {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #080a0d; /* slightly darker/different base */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    will-change: clip-path, transform;
+    z-index: 2;
+}
+
+.noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+.contentWrap {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.logoText {
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin: 0;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 4px 32px rgba(255,255,255,0.04);
+}
+
+.tagline {
+    font-family: var(--font-sans), system-ui, sans-serif;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    color: #888888;
+    margin-top: 1rem;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    opacity: 0; /* Handled by GSAP */
+}
+
+.scrollIndicator {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #555555;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    z-index: 10;
+    opacity: 0.6;
+}
+
+.contentRevealed {
+    position: relative;
+    z-index: 1; /* Below the splash clip */
+}

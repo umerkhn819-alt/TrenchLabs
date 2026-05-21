@@ -1,6 +1,9 @@
 import React from 'react';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp } from '../../lib/motion';
 import { Seo } from '../../components/Seo';
+import { CinematicText } from '../../components/effects/CinematicText';
 import styles from './Legal.module.css';
 
 export const Terms: React.FC = () => (
@@ -11,10 +14,15 @@ export const Terms: React.FC = () => (
             path="/terms"
         />
         <section className={styles.wrap}>
-            <div className="container">
-                <h1 className="section-title gradient-text">Terms of Use</h1>
-                <p className={styles.meta}>Last updated: May 10, 2026</p>
-                <div className={styles.body}>
+            <motion.div 
+                className="container"
+                variants={cinematicStagger}
+                initial="hidden"
+                animate="show"
+            >
+                <motion.h1 variants={cinematicUp} className="section-title gradient-text">Terms of Use</motion.h1>
+                <motion.p variants={cinematicUp} className={styles.meta}>Last updated: May 10, 2026</motion.p>
+                <motion.div variants={cinematicUp} className={styles.body}>
                     <p>
                         By accessing this website, you agree to these terms. If you do not agree, please do not use the site.
                     </p>
@@ -37,8 +45,8 @@ export const Terms: React.FC = () => (
                     <p>
                         <a href="mailto:hello@trenchlabs.com">hello@trenchlabs.com</a>
                     </p>
-                </div>
-            </div>
+                </motion.div>
+            </motion.div>
         </section>
     </Transitions>
 );

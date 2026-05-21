@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import { CheckCircle, Award, Compass, Zap, Loader2 } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
+import { CinematicText } from '../../components/effects/CinematicText';
+import { CinematicCard } from '../../components/effects/CinematicCard';
 import { Seo } from '../../components/Seo';
 import { AppController } from '../../controllers/AppController';
 import styles from './Careers.module.css';
@@ -64,81 +68,120 @@ export const Careers: React.FC = () => {
             />
             {/* 1. CINEMATIC HERO */}
             <section className={styles.hero}>
-                <div className="container">
-                    <span className="section-tagline">Careers at TrenchLabs</span>
-                    <h1 className="section-title gradient-text">Shape The Future Of Digital Engineering</h1>
-                    <p className="section-desc">Join our team of architects, developers, and designers. We build state-of-the-art web platforms for scaling startups.</p>
-                </div>
+                <motion.div 
+                    className="container"
+                    variants={cinematicStagger}
+                    initial="hidden"
+                    animate="show"
+                >
+                    <motion.span variants={cinematicUp} className="section-tagline">Careers at TrenchLabs</motion.span>
+                    <motion.h1 variants={cinematicUp} className="section-title gradient-text">Shape The Future Of Digital Engineering</motion.h1>
+                    <CinematicText as="p" className="section-desc" staggerDelay={0.03}>Join our team of architects, developers, and designers. We build state-of-the-art web platforms for scaling startups.</CinematicText>
+                </motion.div>
             </section>
 
             {/* 2. VALUES */}
             <section className={styles.valuesSection}>
                 <div className="container">
-                    <div className={styles.sectionHeader}>
+                    <motion.div 
+                        className={styles.sectionHeader}
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         <span className="section-tagline">Our Core Values</span>
                         <h2 className="section-title">The TrenchLabs Philosophy</h2>
-                    </div>
-                    <div className={styles.valuesGrid}>
+                    </motion.div>
+                    <motion.div 
+                        className={styles.valuesGrid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         {values.map((v, idx) => {
                             const Icon = v.icon;
                             return (
-                                <div key={idx} className={styles.valueCard}>
-                                    <div className={styles.valIcon}><Icon size={24} /></div>
-                                    <h3>{v.title}</h3>
-                                    <p>{v.desc}</p>
-                                </div>
+                                <CinematicCard key={idx} delay={idx * 0.1}>
+                                    <div className={styles.valueCard}>
+                                        <div className={styles.valIcon}><Icon size={24} /></div>
+                                        <h3>{v.title}</h3>
+                                        <CinematicText as="p">{v.desc}</CinematicText>
+                                    </div>
+                                </CinematicCard>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* 3. BENEFITS CHANNELS */}
             <section className={styles.benefitsSection}>
                 <div className="container">
-                    <div className={styles.benefitsGrid}>
-                        <div className={styles.benefitsLeft}>
+                    <motion.div 
+                        className={styles.benefitsGrid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        <motion.div className={styles.benefitsLeft} variants={cinematicUp}>
                             <span className="section-tagline">Benefits &amp; Perks</span>
                             <h2 className="section-title">Why Build With Us?</h2>
-                            <p>We believe high-performance output is sustained by providing complete workspace empowerment, clear tracking parameters, and room to experiment.</p>
-                        </div>
-                        <div className={styles.benefitsRight}>
+                            <CinematicText as="p">We believe high-performance output is sustained by providing complete workspace empowerment, clear tracking parameters, and room to experiment.</CinematicText>
+                        </motion.div>
+                        <motion.div className={styles.benefitsRight} variants={cinematicUp}>
                             <ul className={styles.benefitsList}>
                                 <li><CheckCircle size={16} /> <span>100% Remote-first global workflow autonomy</span></li>
                                 <li><CheckCircle size={16} /> <span>Bespoke high-end hardware budget allowance</span></li>
                                 <li><CheckCircle size={16} /> <span>Comprehensive continuous learning &amp; book allowances</span></li>
                                 <li><CheckCircle size={16} /> <span>Flexible visual hours &amp; unlimited leave policies</span></li>
                             </ul>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* 4. ACTIVE HIRING VACANCIES */}
             <section className={styles.rolesSection}>
                 <div className="container">
-                    <div className={styles.sectionHeader}>
+                    <motion.div 
+                        className={styles.sectionHeader}
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         <span className="section-tagline">Opportunities</span>
                         <h2 className="section-title">Open Positions</h2>
-                    </div>
+                    </motion.div>
 
-                    <div className={styles.rolesList}>
-                        {roles.map((r) => (
-                            <div key={r.id} className={styles.roleCard}>
-                                <div className={styles.roleMeta}>
-                                    <span className={styles.roleDept}>{r.dept}</span>
-                                    <h3>{r.title}</h3>
-                                    <div className={styles.badges}>
-                                        <span className="badge badge-fulltime">{r.term}</span>
-                                        <span className={styles.payBadge}>{r.pay}</span>
+                    <motion.div 
+                        className={styles.rolesList}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        {roles.map((r, idx) => (
+                            <CinematicCard key={r.id} delay={idx * 0.1}>
+                                <div className={styles.roleCard}>
+                                    <div className={styles.roleMeta}>
+                                        <span className={styles.roleDept}>{r.dept}</span>
+                                        <h3>{r.title}</h3>
+                                        <div className={styles.badges}>
+                                            <span className="badge badge-fulltime">{r.term}</span>
+                                            <span className={styles.payBadge}>{r.pay}</span>
+                                        </div>
                                     </div>
+                                    <button onClick={() => setActiveModal(r.title)} className="btn btn-secondary btn-sm">
+                                        Apply For Position
+                                    </button>
                                 </div>
-                                <button onClick={() => setActiveModal(r.title)} className="btn btn-secondary btn-sm">
-                                    Apply For Position
-                                </button>
-                            </div>
+                            </CinematicCard>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 

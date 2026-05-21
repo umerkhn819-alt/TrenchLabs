@@ -2,6 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Code2, Layers, Zap } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp, scaleIn, viewportOnce } from '../../lib/motion';
+import { CinematicText } from '../../components/effects/CinematicText';
+import { CinematicCard } from '../../components/effects/CinematicCard';
 import { Seo } from '../../components/Seo';
 import { GlowBadge } from '../../components/ui/GlowBadge';
 import { StatCounter } from '../../components/ui/StatCounter';
@@ -27,12 +31,20 @@ export const Team: React.FC = () => {
             <section className={styles.hero}>
                 <GridOverlay opacity={0.05} />
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <GlowBadge variant="accent" pulse>The team</GlowBadge>
-                    <h1 className={styles.heroTitle}>Founder-led, engineer-executed</h1>
-                    <p className={styles.heroDesc}>
-                        A small, focused team of engineers and operations specialists who care about craft.
-                        No account managers—you work directly with the people building your product.
-                    </p>
+                    <motion.div
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div variants={cinematicUp}>
+                            <GlowBadge variant="accent" pulse>The team</GlowBadge>
+                        </motion.div>
+                        <motion.h1 variants={cinematicUp} className={styles.heroTitle}>Founder-led, engineer-executed</motion.h1>
+                        <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>
+                            A small, focused team of engineers and operations specialists who care about craft.
+                            No account managers—you work directly with the people building your product.
+                        </CinematicText>
+                    </motion.div>
                 </div>
             </section>
 
@@ -40,71 +52,105 @@ export const Team: React.FC = () => {
             <section className={`${styles.statsSection} section-inset`}>
                 <GridOverlay opacity={0.06} variant="dots" />
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <div className={styles.statsGrid}>
-                        <StatCounter value={5} suffix="+" label="Team members" />
-                        <StatCounter value={4} suffix="+" label="Years in operation" />
-                        <StatCounter value={150} suffix="+" label="Projects delivered" />
-                        <StatCounter value={99} suffix="%" label="Client retention" />
-                    </div>
+                    <motion.div 
+                        className={styles.statsGrid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        <motion.div variants={scaleIn}><StatCounter value={5} suffix="+" label="Team members" /></motion.div>
+                        <motion.div variants={scaleIn}><StatCounter value={4} suffix="+" label="Years in operation" /></motion.div>
+                        <motion.div variants={scaleIn}><StatCounter value={150} suffix="+" label="Projects delivered" /></motion.div>
+                        <motion.div variants={scaleIn}><StatCounter value={99} suffix="%" label="Client retention" /></motion.div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Team cards */}
             <section className={styles.gridSection}>
                 <div className="container">
-                    <div className={styles.sectionHeader}>
+                    <motion.div 
+                        className={styles.sectionHeader}
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         <div>
                             <span className="section-tagline">Leadership</span>
                             <h2 className="section-title">Who you work with</h2>
                         </div>
-                    </div>
-                    <div className={styles.grid}>
-                        {TEAM_EXPERTS.map((mem) => (
-                            <Link key={mem.id} to={`/team/${mem.id}`} className={styles.teamCard}>
-                                <div className={styles.teamCardPhoto}>
-                                    {mem.photo ? (
-                                        <img src={mem.photo} alt={mem.name} className={styles.teamCardImg} />
-                                    ) : (
-                                        <div className={styles.teamCardPlaceholder}>
-                                            <span>{mem.name.charAt(0)}</span>
-                                        </div>
-                                    )}
-                                    <span className={styles.roleBadge}>{mem.roleAbbr}</span>
-                                </div>
-                                <div className={styles.teamCardBody}>
-                                    <h3>{mem.name}</h3>
-                                    <p>{mem.role}</p>
-                                    <span className={styles.teamCardCta}>View profile <ArrowRight size={13} /></span>
-                                </div>
-                            </Link>
+                    </motion.div>
+                    <motion.div 
+                        className={styles.grid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        {TEAM_EXPERTS.map((mem, idx) => (
+                            <CinematicCard key={mem.id} delay={idx * 0.1}>
+                                <Link to={`/team/${mem.id}`} className={styles.teamCard}>
+                                    <div className={styles.teamCardPhoto}>
+                                        {mem.photo ? (
+                                            <img src={mem.photo} alt={mem.name} className={styles.teamCardImg} />
+                                        ) : (
+                                            <div className={styles.teamCardPlaceholder}>
+                                                <span>{mem.name.charAt(0)}</span>
+                                            </div>
+                                        )}
+                                        <span className={styles.roleBadge}>{mem.role}</span>
+                                    </div>
+                                    <div className={styles.teamCardBody}>
+                                        <h3>{mem.name}</h3>
+                                        <p>{mem.shortDesc}</p>
+                                        <span className={styles.teamCardCta}>Full profile &rarr;</span>
+                                    </div>
+                                </Link>
+                            </CinematicCard>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
             {/* Values section */}
             <section className={styles.valuesSection}>
                 <div className="container">
-                    <div className={styles.sectionHeader}>
+                    <motion.div 
+                        className={styles.sectionHeader}
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         <div>
                             <span className="section-tagline">Philosophy</span>
                             <h2 className="section-title">Our engineering principles</h2>
                         </div>
-                    </div>
-                    <div className={styles.valuesGrid}>
-                        {VALUES.map((v) => {
+                    </motion.div>
+                    <motion.div 
+                        className={styles.valuesGrid}
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
+                        {VALUES.map((v, idx) => {
                             const Icon = v.icon;
                             return (
-                                <div key={v.title} className={styles.valueCard}>
-                                    <div className={styles.valueIconWrap} style={{ '--vc': v.color } as React.CSSProperties}>
-                                        <Icon size={22} strokeWidth={2} />
+                                <CinematicCard key={v.title} delay={idx * 0.1}>
+                                    <div className={styles.valueCard}>
+                                        <div className={styles.valueIconWrap} style={{ '--vc': v.color } as React.CSSProperties}>
+                                            <Icon size={22} strokeWidth={2.25} />
+                                        </div>
+                                        <h4>{v.title}</h4>
+                                        <CinematicText as="p">{v.desc}</CinematicText>
                                     </div>
-                                    <h4>{v.title}</h4>
-                                    <p>{v.desc}</p>
-                                </div>
+                                </CinematicCard>
                             );
                         })}
-                    </div>
+                    </motion.div>
                 </div>
             </section>
         </Transitions>

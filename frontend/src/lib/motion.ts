@@ -26,4 +26,34 @@ export const staggerContainer: Variants = {
     }
 };
 
-export const viewportOnce = { once: true, amount: 0.15, margin: '-60px' } as const;
+export const viewportOnce = { once: false, amount: 0.1, margin: '0px 0px -50px 0px' } as const;
+
+/* Solid, clean, Apple-like variants */
+export const cinematicEase = [0.25, 1, 0.5, 1] as const;
+
+export const cinematicUp: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    show: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.8, ease: cinematicEase }
+    }
+};
+
+export const cinematicStagger: Variants = {
+    hidden: {},
+    show: {
+        transition: { staggerChildren: 0.1, delayChildren: 0.05 }
+    }
+};
+
+export const scaleIn: Variants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    show: {
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.8, ease: cinematicEase }
+    }
+};
+
+export const cinematicViewport = { once: false, amount: 0.1, margin: '0px 0px -50px 0px' } as const;

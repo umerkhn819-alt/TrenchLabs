@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { Transitions } from '../../components/Transitions';
+import { motion } from 'framer-motion';
+import { cinematicStagger, cinematicUp, scaleIn, viewportOnce } from '../../lib/motion';
+import { CinematicText } from '../../components/effects/CinematicText';
+import { CinematicCard } from '../../components/effects/CinematicCard';
 import { Seo } from '../../components/Seo';
 import { GlowBadge } from '../../components/ui/GlowBadge';
 import { GridOverlay } from '../../components/effects/GridOverlay';
@@ -26,18 +31,32 @@ export const Blog: React.FC = () => {
             <section className={styles.hero}>
                 <GridOverlay opacity={0.05} />
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                    <GlowBadge variant="accent" pulse>Insights</GlowBadge>
-                    <h1 className={styles.heroTitle}>Engineering notes & guides</h1>
-                    <p className={styles.heroDesc}>
-                        Architectural findings, speed benchmarks, and automation templates from building production systems.
-                    </p>
+                    <motion.div
+                        variants={cinematicStagger}
+                        initial="hidden"
+                        animate="show"
+                    >
+                        <motion.div variants={cinematicUp}>
+                            <GlowBadge variant="accent" pulse>Insights</GlowBadge>
+                        </motion.div>
+                        <motion.h1 variants={cinematicUp} className={styles.heroTitle}>Engineering notes & guides</motion.h1>
+                        <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>
+                            Architectural findings, speed benchmarks, and automation templates from building production systems.
+                        </CinematicText>
+                    </motion.div>
                 </div>
             </section>
 
             <section className={styles.blogSection}>
                 <div className="container">
                     {/* Filter chips */}
-                    <div className={styles.filterRow}>
+                    <motion.div 
+                        className={styles.filterRow}
+                        variants={cinematicUp}
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={viewportOnce}
+                    >
                         {ALL_TAGS.map((tag) => (
                             <button
                                 key={tag}
@@ -48,47 +67,57 @@ export const Blog: React.FC = () => {
                                 {tag}
                             </button>
                         ))}
-                    </div>
+                    </motion.div>
 
                     {featured && (
-                        <article className={styles.featured}>
-                            <div className={styles.featuredContent}>
-                                <div className={styles.featuredMeta}>
-                                    <span className={styles.tag}>{featured.tag}</span>
-                                    <span className={styles.metaDot}>·</span>
-                                    <span className={styles.metaText}>{featured.date}</span>
-                                    <span className={styles.metaDot}>·</span>
-                                    <span className={styles.metaText}>{featured.read}</span>
+                        <CinematicCard delay={0.1}>
+                            <article className={styles.featured}>
+                                <div className={styles.featuredContent}>
+                                    <div className={styles.featuredMeta}>
+                                        <span className={styles.tag}>{featured.tag}</span>
+                                        <span className={styles.metaDot}>·</span>
+                                        <span className={styles.metaText}>{featured.date}</span>
+                                        <span className={styles.metaDot}>·</span>
+                                        <span className={styles.metaText}>{featured.read}</span>
+                                    </div>
+                                    <h2 className={styles.featuredTitle}>{featured.title}</h2>
+                                    <CinematicText as="p" className={styles.featuredDesc}>{featured.desc}</CinematicText>
+                                    <Link to={`/blog/${featured.slug}`} className={`${styles.readBtn} btn-premium`}>
+                                        Read article <ArrowRight size={16} />
+                                    </Link>
                                 </div>
-                                <h2 className={styles.featuredTitle}>{featured.title}</h2>
-                                <p className={styles.featuredDesc}>{featured.desc}</p>
-                                <button type="button" className={`${styles.readBtn} btn-premium`} onClick={() => alert('Article reading mode coming soon!')}>
-                                    Read article <ArrowRight size={16} />
-                                </button>
-                            </div>
-                        </article>
+                            </article>
+                        </CinematicCard>
                     )}
 
                     {rest.length > 0 && (
-                        <div className={styles.grid}>
-                            {rest.map((p) => (
-                                <article key={p.title} className={styles.card}>
-                                    <div className={styles.cardMeta}>
-                                        <span className={styles.tag}>{p.tag}</span>
-                                        <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
-                                            <span className={styles.metaText}>{p.date}</span>
-                                            <span className={styles.metaDot}>·</span>
-                                            <span className={styles.metaText}>{p.read}</span>
+                        <motion.div 
+                            className={styles.grid}
+                            variants={cinematicStagger}
+                            initial="hidden"
+                            whileInView="show"
+                            viewport={viewportOnce}
+                        >
+                            {rest.map((post, idx) => (
+                                <CinematicCard key={post.title} delay={idx * 0.1}>
+                                    <article className={styles.card}>
+                                        <div className={styles.cardMeta}>
+                                            <span className={styles.tag}>{post.tag}</span>
+                                            <div style={{ display: 'flex', gap: '0.35rem', alignItems: 'center' }}>
+                                                <span className={styles.metaText}>{post.date}</span>
+                                                <span className={styles.metaDot}>·</span>
+                                                <span className={styles.metaText}>{post.read}</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <h3 className={styles.cardTitle}>{p.title}</h3>
-                                    <p className={styles.cardDesc}>{p.desc}</p>
-                                    <button type="button" className={styles.cardReadBtn} onClick={() => alert('Article reading mode coming soon!')}>
-                                        Read <ArrowRight size={13} />
-                                    </button>
-                                </article>
+                                        <h3 className={styles.cardTitle}>{post.title}</h3>
+                                        <CinematicText as="p" className={styles.cardDesc}>{post.desc}</CinematicText>
+                                        <Link to={`/blog/${post.slug}`} className={styles.cardReadBtn}>
+                                            Read <ArrowRight size={13} />
+                                        </Link>
+                                    </article>
+                                </CinematicCard>
                             ))}
-                        </div>
+                        </motion.div>
                     )}
 
                     {filtered.length === 0 && (
