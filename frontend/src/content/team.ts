@@ -3,8 +3,7 @@ import type { TeamExpertCard, TeamMemberDetail } from './types';
 export const TEAM_EXPERTS: TeamExpertCard[] = [
     { id: 'umar-khan', name: 'Umar Khan', role: 'CEO & Founder', roleAbbr: 'CEO', accent: '#0f172a', photo: '/team/umar.jpg' },
     { id: 'muhammad-tariq', name: 'Muhammad Tariq', role: 'Partnership Manager', roleAbbr: 'PM', accent: '#0f172a', photo: '/team/tariq.jpg' },
-    { id: 'sarah-jenkins', name: 'Sarah Jenkins', role: 'Lead Systems Engineer', roleAbbr: 'SSE', accent: '#0f172a', photo: '/team/sarah.jpg' },
-    { id: 'clara-mendez', name: 'Clara Mendez', role: 'Operations Director', roleAbbr: 'OPS', accent: '#0f172a', photo: '/team/clara.jpg' }
+    { id: 'sarah-jenkins', name: 'Sarah Jenkins', role: 'Lead Systems Engineer', roleAbbr: 'SSE', accent: '#0f172a', photo: '/team/sarah.jpg' }
 ];
 
 export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
@@ -54,22 +53,6 @@ export const TEAM_MEMBERS_BY_ID: Record<string, TeamMemberDetail> = {
             { name: 'API Design Patterns', val: '95%' }
         ],
         projects: ['Redis Double-booking Lock for Nexa', 'HIPAA Secure Patient Directories'],
-        accent: '#0f172a'
-    },
-    'clara-mendez': {
-        id: 'clara-mendez',
-        name: 'Clara Mendez',
-        role: 'Operations Director',
-        roleAbbr: 'OPS',
-        philosophy: 'Smooth organizational workflows are the silent foundation of premium product delivery.',
-        bio: 'Clara directs our organizational timelines, administrative structures, and full-time hiring/internship tracks. She brings 7 years of talent management and operations consulting experience to keep TrenchLabs highly efficient.',
-        skills: [
-            { name: 'Talent Acquisition', val: '95%' },
-            { name: 'Operations Audits', val: '97%' },
-            { name: 'Workflow Structuring', val: '94%' },
-            { name: 'Program Management', val: '96%' }
-        ],
-        projects: ['TrenchLabs Hiring Blueprint', 'Internship Tracks Program Framework'],
         accent: '#0f172a'
     }
 };

@@ -92,29 +92,7 @@ export const Services: React.FC = () => {
                 </div>
             </section>
 
-            <section className={styles.faqSection}>
-                <div className="container">
-                    <motion.div 
-                        className={styles.faqHeader}
-                        variants={cinematicUp}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={viewportOnce}
-                    >
-                        <span className="section-tagline">FAQ</span>
-                        <h2 className="section-title">Common questions</h2>
-                        <CinematicText as="p" className="section-desc">Everything you need to know about working with TrenchLabs.</CinematicText>
-                    </motion.div>
-                    <motion.div
-                        variants={cinematicUp}
-                        initial="hidden"
-                        whileInView="show"
-                        viewport={viewportOnce}
-                    >
-                        <FAQAccordion items={FAQ_ITEMS} className={styles.faqList} />
-                    </motion.div>
-                </div>
-            </section>
+
         </Transitions>
     );
 };

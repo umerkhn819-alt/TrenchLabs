@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CheckCircle, Award, Compass, Zap, Loader2 } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
 import { CinematicText } from '../../components/effects/CinematicText';
 import { CinematicCard } from '../../components/effects/CinematicCard';
@@ -15,14 +15,14 @@ export const Careers: React.FC = () => {
     const [isSuccess, setIsSuccess] = useState(false);
 
     const values = [
-        { icon: Compass, title: 'Absolute Intent', desc: 'Every line of code and user flow we design serves a strategic, measurable target.' },
-        { icon: Zap, title: 'Extreme Velocity', desc: 'We deliver ultra-fluid builds on schedule, eliminating administrative friction.' },
-        { icon: Award, title: 'Premium Aesthetics', desc: 'Crafting pixel-perfect layouts inspired by modern product giants.' }
+        { icon: Compass, title: 'Absolute Intent', desc: 'Every line of code and user flow we design serves a strategic, measurable target.', color: '#38bdf8' },
+        { icon: Zap, title: 'Extreme Velocity', desc: 'We deliver ultra-fluid builds on schedule, eliminating administrative friction.', color: '#a78bfa' },
+        { icon: Award, title: 'Premium Aesthetics', desc: 'Crafting pixel-perfect layouts inspired by modern product giants.', color: '#f472b6' }
     ];
 
     const roles = [
         { id: 'dev-theme', title: 'Lead Fullstack Developer', dept: 'Engineering', term: 'Full-time', pay: '$3k - $4.5k / mo' },
-        { id: 'shopify-eng', title: 'E-Commerce Engineer (Shopify & custom)', dept: 'E-commerce', term: 'Full-time', pay: '$2.5k - $3.8k / mo' },
+        { id: 'shopify-eng', title: 'E-Commerce Engineer', dept: 'E-commerce', term: 'Full-time', pay: '$2.5k - $3.8k / mo' },
         { id: 'ai-ops', title: 'AI Automation Orchestrator', dept: 'Data & Automation', term: 'Full-time', pay: '$3k - $4.2k / mo' }
     ];
 
@@ -66,21 +66,24 @@ export const Careers: React.FC = () => {
                 description="Join TrenchLabs — modern web, AI automation, e-commerce, and technical optimization roles for builders who care about quality."
                 path="/careers"
             />
+            
             {/* 1. CINEMATIC HERO */}
             <section className={styles.hero}>
+                <div className={styles.heroGlow} />
                 <motion.div 
                     className="container"
+                    style={{ position: 'relative', zIndex: 1 }}
                     variants={cinematicStagger}
                     initial="hidden"
                     animate="show"
                 >
-                    <motion.span variants={cinematicUp} className="section-tagline">Careers at TrenchLabs</motion.span>
-                    <motion.h1 variants={cinematicUp} className="section-title gradient-text">Shape The Future Of Digital Engineering</motion.h1>
-                    <CinematicText as="p" className="section-desc" staggerDelay={0.03}>Join our team of architects, developers, and designers. We build state-of-the-art web platforms for scaling startups.</CinematicText>
+                    <motion.span variants={cinematicUp} className={styles.categoryBadge}>Careers at TrenchLabs</motion.span>
+                    <motion.h1 variants={cinematicUp} className={styles.heroTitle}>Shape The Future Of<br/><span className="gradient-text">Digital Engineering</span></motion.h1>
+                    <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>Join our syndicate of architects, developers, and designers. We build state-of-the-art web platforms for scaling startups.</CinematicText>
                 </motion.div>
             </section>
 
-            {/* 2. VALUES */}
+            {/* 2. VALUES BENTO */}
             <section className={styles.valuesSection}>
                 <div className="container">
                     <motion.div 
@@ -90,7 +93,7 @@ export const Careers: React.FC = () => {
                         whileInView="show"
                         viewport={viewportOnce}
                     >
-                        <span className="section-tagline">Our Core Values</span>
+                        <span className="section-tagline">Core Values</span>
                         <h2 className="section-title">The TrenchLabs Philosophy</h2>
                     </motion.div>
                     <motion.div 
@@ -105,7 +108,8 @@ export const Careers: React.FC = () => {
                             return (
                                 <CinematicCard key={idx} delay={idx * 0.1}>
                                     <div className={styles.valueCard}>
-                                        <div className={styles.valIcon}><Icon size={24} /></div>
+                                        <div className={styles.valueGlow} style={{ background: `radial-gradient(circle at top right, ${v.color}15 0%, transparent 60%)` }} />
+                                        <div className={styles.valIcon} style={{ color: v.color, backgroundColor: `${v.color}15`, border: `1px solid ${v.color}30` }}><Icon size={28} strokeWidth={2} /></div>
                                         <h3>{v.title}</h3>
                                         <CinematicText as="p">{v.desc}</CinematicText>
                                     </div>
@@ -133,10 +137,22 @@ export const Careers: React.FC = () => {
                         </motion.div>
                         <motion.div className={styles.benefitsRight} variants={cinematicUp}>
                             <ul className={styles.benefitsList}>
-                                <li><CheckCircle size={16} /> <span>100% Remote-first global workflow autonomy</span></li>
-                                <li><CheckCircle size={16} /> <span>Bespoke high-end hardware budget allowance</span></li>
-                                <li><CheckCircle size={16} /> <span>Comprehensive continuous learning &amp; book allowances</span></li>
-                                <li><CheckCircle size={16} /> <span>Flexible visual hours &amp; unlimited leave policies</span></li>
+                                <li>
+                                    <div className={styles.benefitIcon}><CheckCircle size={18} /></div> 
+                                    <span>100% Remote-first global workflow autonomy</span>
+                                </li>
+                                <li>
+                                    <div className={styles.benefitIcon}><CheckCircle size={18} /></div> 
+                                    <span>Bespoke high-end hardware budget allowance</span>
+                                </li>
+                                <li>
+                                    <div className={styles.benefitIcon}><CheckCircle size={18} /></div> 
+                                    <span>Comprehensive continuous learning &amp; book allowances</span>
+                                </li>
+                                <li>
+                                    <div className={styles.benefitIcon}><CheckCircle size={18} /></div> 
+                                    <span>Flexible visual hours &amp; unlimited leave policies</span>
+                                </li>
                             </ul>
                         </motion.div>
                     </motion.div>
@@ -167,16 +183,17 @@ export const Careers: React.FC = () => {
                         {roles.map((r, idx) => (
                             <CinematicCard key={r.id} delay={idx * 0.1}>
                                 <div className={styles.roleCard}>
+                                    <div className={styles.roleGlow} />
                                     <div className={styles.roleMeta}>
                                         <span className={styles.roleDept}>{r.dept}</span>
                                         <h3>{r.title}</h3>
                                         <div className={styles.badges}>
-                                            <span className="badge badge-fulltime">{r.term}</span>
+                                            <span className={styles.termBadge}>{r.term}</span>
                                             <span className={styles.payBadge}>{r.pay}</span>
                                         </div>
                                     </div>
-                                    <button onClick={() => setActiveModal(r.title)} className="btn btn-secondary btn-sm">
-                                        Apply For Position
+                                    <button onClick={() => setActiveModal(r.title)} className={styles.applyBtn}>
+                                        Apply For Position &rarr;
                                     </button>
                                 </div>
                             </CinematicCard>
@@ -185,56 +202,62 @@ export const Careers: React.FC = () => {
                 </div>
             </section>
 
-            {/* 5. INTERACTIVE MULTI-STEP APPLY DIALOG */}
+            {/* 5. HIGH-TECH CONSOLE MODAL */}
             {activeModal && (
                 <div className={styles.modalOverlay} onClick={handleCloseModal}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                        <div className={styles.modalGlow} />
                         <button onClick={handleCloseModal} className={styles.closeBtn} aria-label="Close apply modal">&times;</button>
                         
                         {!isSuccess ? (
                             <form onSubmit={handleFormSubmit} className={styles.applyForm}>
-                                <h2>Apply: {activeModal}</h2>
+                                <span className={styles.modalTag}>Application Process</span>
+                                <h2>{activeModal}</h2>
                                 <p>Provide your details to register in our applicant registry.</p>
                                 
                                 <div className={styles.formGrid}>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>Full Name</label>
-                                        <input type="text" name="name" required placeholder="Umar Khan" />
+                                        <input type="text" name="name" required placeholder="John Doe" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>Email Address</label>
-                                        <input type="email" name="email" required placeholder="hello@trenchlabs.com" />
+                                        <input type="email" name="email" required placeholder="john@example.com" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>Portfolio / GitHub</label>
-                                        <input type="url" name="github" required placeholder="https://github.com/trenchlabs" />
+                                        <input type="url" name="github" required placeholder="https://github.com/johndoe" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>Expected Compensation</label>
                                         <input type="text" name="compensation" required placeholder="$3,500 USD / mo" />
                                     </div>
                                 </div>
 
-                                <div className="form-group" style={{ marginTop: '1.2rem' }}>
+                                <div className={styles.inputGroup} style={{ marginTop: '1.5rem' }}>
                                     <label>Professional Summary &amp; Experience</label>
                                     <textarea name="experience" required rows={4} placeholder="Briefly introduce your technical stack and project involvement history..."></textarea>
                                 </div>
 
-                                <button type="submit" className="btn btn-primary btn-full" style={{ marginTop: '2rem' }} disabled={isSubmitting}>
+                                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
                                     {isSubmitting ? (
                                         <>
                                             <Loader2 size={16} className={styles.spinner} />
-                                            Encrypting &amp; Transmitting Application...
+                                            <span>Encrypting &amp; Transmitting...</span>
                                         </>
-                                    ) : 'Submit Candidate Form'}
+                                    ) : (
+                                        <span>Submit Candidate Form &rarr;</span>
+                                    )}
                                 </button>
                             </form>
                         ) : (
                             <div className={styles.successScreen}>
-                                <div className={styles.successIcon}><CheckCircle size={44} /></div>
+                                <div className={styles.successIconWrap}>
+                                    <CheckCircle size={44} />
+                                </div>
                                 <h2>Application Transmitted!</h2>
                                 <p>We have compiled and locked your application logs in our talent database. Our operations director will reach out via email within 48 business hours.</p>
-                                <button onClick={handleCloseModal} className="btn btn-primary">Acknowledge</button>
+                                <button onClick={handleCloseModal} className={styles.successBtn}>Acknowledge</button>
                             </div>
                         )}
                     </div>
@@ -244,3 +267,4 @@ export const Careers: React.FC = () => {
     );
 };
 export default Careers;
+

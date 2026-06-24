@@ -1,6 +1,6 @@
 import React from 'react';
 import { Transitions } from '../../components/Transitions';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { cinematicStagger, cinematicUp } from '../../lib/motion';
 import { Seo } from '../../components/Seo';
 import { CinematicText } from '../../components/effects/CinematicText';
@@ -55,3 +55,4 @@ export const Privacy: React.FC = () => (
 );
 
 export default Privacy;
+

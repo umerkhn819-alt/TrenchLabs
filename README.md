@@ -1,5 +1,15 @@
 # TrenchLabs
 
+> **The digital engineering studio that builds fast, precise, and without compromise.**
+
+TrenchLabs is a boutique digital engineering agency offering modern web development, AI automation systems, UI/UX design, e-commerce solutions, and WordPress development.
+
+📄 **For a full non-technical overview of the agency — services, team, portfolio, culture, and contact details — see [AGENCY.md](./AGENCY.md).**
+
+---
+
+## Technical Stack
+
 TrenchLabs is now a Supabase-first stack:
 
 - Frontend: Next.js (App Router) in `frontend/`

@@ -28,6 +28,8 @@ const CaseStudyDetail = lazy(() => import('./site-pages/CaseStudyDetail/CaseStud
 const Blog = lazy(() => import('./site-pages/Blog/Blog'));
 const BlogPost = lazy(() => import('./site-pages/BlogPost/BlogPost'));
 const Admin = lazy(() => import('./features/admin/Admin'));
+const Work = lazy(() => import('./site-pages/Work/Work'));
+const Process = lazy(() => import('./site-pages/Process/Process'));
 
 // Scroll Restorator
 const ScrollToTop: React.FC = () => {
@@ -88,7 +90,9 @@ const AppContent: React.FC = () => {
                         <Route path="/services/shopify" element={<Navigate to="/services/e-commerce" replace />} />
                         <Route path="/services/digital-marketing" element={<Navigate to="/services" replace />} />
                         <Route path="/services/:id" element={<ServiceDetail />} />
+                        <Route path="/work" element={<Work />} />
                         <Route path="/work/:id" element={<CaseStudyDetail />} />
+                        <Route path="/process" element={<Process />} />
                         <Route path="/team" element={<Team />} />
                         <Route path="/team/:id" element={<TeamMemberDetail />} />
                         <Route path="/careers" element={<Careers />} />

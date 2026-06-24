@@ -76,10 +76,11 @@ export const Internship: React.FC = () => {
             />
             {/* 1. HERO SECTION */}
             <header className={styles.hero}>
-                <div className="container">
-                    <span className="section-tagline">TrenchLabs Academy</span>
-                    <h1 className="section-title gradient-text">Next-Gen Development Internships</h1>
-                    <p className="section-desc">Launch your professional engineering career. Build real, state-of-the-art startup products under one-on-one leadership mentorship.</p>
+                <div className={styles.heroGlow} />
+                <div className="container" style={{ position: 'relative', zIndex: 1 }}>
+                    <span className={styles.categoryBadge}>TrenchLabs Academy</span>
+                    <h1 className={styles.heroTitle}>Next-Gen<br/><span className="gradient-text">Development Internships</span></h1>
+                    <p className={styles.heroDesc}>Launch your professional engineering career. Build real, state-of-the-art startup products under one-on-one leadership mentorship.</p>
                 </div>
             </header>
 
@@ -94,14 +95,20 @@ export const Internship: React.FC = () => {
                         </div>
                         <div className={styles.aboutRight}>
                             <div className={styles.featureCard}>
-                                <BookOpen className={styles.featIcon} />
+                                <div className={styles.featureGlow} />
+                                <div className={styles.featIconWrap}>
+                                    <BookOpen className={styles.featIcon} size={28} />
+                                </div>
                                 <div>
                                     <h4>Custom Syllabus Matrix</h4>
                                     <p>Structured curriculum maps outlining precise milestones for each development track.</p>
                                 </div>
                             </div>
-                            <div className={styles.featureCard} style={{ marginTop: '1.5rem' }}>
-                                <Star className={styles.featIcon} />
+                            <div className={styles.featureCard} style={{ marginTop: '2rem' }}>
+                                <div className={styles.featureGlow} />
+                                <div className={styles.featIconWrap}>
+                                    <Star className={styles.featIcon} size={28} />
+                                </div>
                                 <div>
                                     <h4>Fulltime Career Pathway</h4>
                                     <p>Over 70% of our high-performing interns transition directly into full-time hiring packages.</p>
@@ -123,8 +130,9 @@ export const Internship: React.FC = () => {
                     <div className={styles.grid}>
                         {tracks.map((t) => (
                             <div key={t.id} className={styles.card}>
+                                <div className={styles.cardGlow} />
                                 <div className={styles.cardHeader}>
-                                    <span className="badge badge-internship">Internship Program</span>
+                                    <span className={styles.termBadge}>Internship Program</span>
                                 </div>
                                 <div className={styles.cardBody}>
                                     <h3>{t.title}</h3>
@@ -141,8 +149,8 @@ export const Internship: React.FC = () => {
                                     </div>
                                 </div>
                                 <div className={styles.cardFooter}>
-                                    <button onClick={() => setSelectedTrack(t.title)} className="btn btn-primary btn-full">
-                                        Apply For Track
+                                    <button onClick={() => setSelectedTrack(t.title)} className={styles.applyBtn}>
+                                        Apply For Track &rarr;
                                     </button>
                                 </div>
                             </div>
@@ -155,52 +163,56 @@ export const Internship: React.FC = () => {
             {selectedTrack && (
                 <div className={styles.modalOverlay} onClick={handleCloseModal}>
                     <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+                        <div className={styles.modalGlow} />
                         <button onClick={handleCloseModal} className={styles.closeBtn}>&times;</button>
                         
                         {!isSuccess ? (
                             <form onSubmit={handleFormSubmit} className={styles.applyForm}>
-                                <h2>Apply: {selectedTrack}</h2>
+                                <span className={styles.modalTag}>Application Process</span>
+                                <h2>{selectedTrack}</h2>
                                 <p>Register your academic background and project history.</p>
 
                                 <div className={styles.formGrid}>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>Full Name</label>
                                         <input type="text" name="name" required placeholder="Umar Khan" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>Email Address</label>
                                         <input type="email" name="email" required placeholder="hello@trenchlabs.com" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>University / School</label>
                                         <input type="text" name="university" required placeholder="FAST NUCES, Islamabad" />
                                     </div>
-                                    <div className="form-group">
+                                    <div className={styles.inputGroup}>
                                         <label>GitHub / Portfolio URL</label>
                                         <input type="url" name="github" required placeholder="https://github.com/trenchlabs" />
                                     </div>
                                 </div>
 
-                                <div className="form-group" style={{ marginTop: '1.2rem' }}>
+                                <div className={styles.inputGroup} style={{ marginTop: '1.5rem' }}>
                                     <label>What excites you about digital system engineering?</label>
                                     <textarea name="statement" required rows={4} placeholder="Introduce your favorite languages, tools, or why you want to learn under custom mentorship..."></textarea>
                                 </div>
 
-                                <button type="submit" className="btn btn-primary btn-full" style={{ marginTop: '2rem' }} disabled={isSubmitting}>
+                                <button type="submit" className={styles.submitBtn} disabled={isSubmitting}>
                                     {isSubmitting ? (
                                         <>
                                             <Loader2 size={16} className={styles.spinner} />
-                                            Encrypting Academic Profile...
+                                            <span>Encrypting Profile...</span>
                                         </>
-                                    ) : 'Submit Internship Form'}
+                                    ) : (
+                                        <span>Submit Internship Form &rarr;</span>
+                                    )}
                                 </button>
                             </form>
                         ) : (
                             <div className={styles.successScreen}>
-                                <div className={styles.successIcon}><CheckCircle size={44} /></div>
+                                <div className={styles.successIconWrap}><CheckCircle size={44} /></div>
                                 <h2>Application Transmitted!</h2>
                                 <p>We have processed and registered your details in our apprentice log. Our operations team will reach out to schedule a tech screening interview.</p>
-                                <button onClick={handleCloseModal} className="btn btn-primary">Acknowledge</button>
+                                <button onClick={handleCloseModal} className={styles.successBtn}>Acknowledge</button>
                             </div>
                         )}
                     </div>

@@ -2,16 +2,16 @@
 
 @theme {
     /* Dark page canvas + accent */
-    --color-background: #080a0d;
-    --color-muted: #11141a;
-    --color-card: #0c0e12;
+    --color-background: #000000;
+    --color-muted: #0a0a0a;
+    --color-card: #050505;
     --color-foreground: #f8fafc;
     --color-muted-foreground: #94a3b8;
     --color-accent: #38bdf8;
     --color-accent-secondary: #0ea5e9;
     --color-highlight-1: #1e293b;
-    --color-highlight-2: color-mix(in srgb, #334155 50%, #080a0d);
-    --color-accent-foreground: #080a0d;
+    --color-highlight-2: color-mix(in srgb, #334155 50%, #000000);
+    --color-accent-foreground: #000000;
     --color-border: rgb(255 255 255 / 0.1);
     --color-ring: #38bdf8;
 
@@ -50,17 +50,17 @@
     --border-radius-lg: var(--radius-lg);
 
     /* Dark chrome (nav, footer, hero shell) */
-    --color-chrome-bg: #0c0e12;
-    --color-chrome-muted: #141a24;
-    --color-chrome-card: #161d28;
+    --color-chrome-bg: #000000;
+    --color-chrome-muted: #0a0a0a;
+    --color-chrome-card: #050505;
     --color-chrome-foreground: #f1f5f9;
     --color-chrome-muted-foreground: #94a3b8;
     --color-chrome-border: rgb(255 255 255 / 0.1);
     --color-chrome-border-strong: rgb(255 255 255 / 0.16);
 
     /* Full-width dark bands on light page (Legacy, but kept for dark compatibility) */
-    --color-inset-bg: #0c0e12;
-    --color-inset-muted: #11141a;
+    --color-inset-bg: #000000;
+    --color-inset-muted: #0a0a0a;
     --color-inset-foreground: #f8fafc;
     --color-inset-muted-foreground: #94a3b8;
     --color-inset-border: rgb(255 255 255 / 0.1);

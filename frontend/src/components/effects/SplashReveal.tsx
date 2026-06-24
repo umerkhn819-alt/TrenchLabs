@@ -27,7 +27,7 @@ export const SplashReveal: React.FC = () => {
                     "-=0.8"
                 );
 
-            // Scroll-driven minimalist reveal without pin to fix framer-motion premature triggering
+            // Scroll-driven minimalist reveal without pin to fix lagging
             const scrollTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: containerRef.current,

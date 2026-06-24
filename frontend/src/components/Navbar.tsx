@@ -57,15 +57,24 @@ export const Navbar: React.FC = () => {
                                     Services
                                 </Link>
                             </li>
-
                             <li>
-                                <Link to="/team" className={`${styles.navLink} ${location.pathname.startsWith('/team') ? styles.active : ''}`}>
-                                    About
+                                <Link to="/work" className={`${styles.navLink} ${location.pathname.startsWith('/work') ? styles.active : ''}`}>
+                                    Work
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/process" className={`${styles.navLink} ${location.pathname.startsWith('/process') ? styles.active : ''}`}>
+                                    Process
                                 </Link>
                             </li>
                             <li>
                                 <Link to="/blog" className={`${styles.navLink} ${isActive('/blog') ? styles.active : ''}`}>
                                     Insights
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/team" className={`${styles.navLink} ${location.pathname.startsWith('/team') ? styles.active : ''}`}>
+                                    About
                                 </Link>
                             </li>
                             <li>
@@ -76,8 +85,8 @@ export const Navbar: React.FC = () => {
                         </ul>
 
                         <div className={styles.navActions}>
-                            <MagneticCTA to="/consultation" className={`btn-premium ${styles.navCtaBtn}`}>
-                                Book a 15-minute call
+                            <MagneticCTA to="/consultation" className={styles.navCtaBtn}>
+                                Book Strategy Call
                             </MagneticCTA>
                             <button
                                 type="button"
@@ -120,13 +129,23 @@ export const Navbar: React.FC = () => {
                         ))}
                     </ul>
                     <li>
-                        <Link to="/team" onClick={() => setMobileOpen(false)}>
-                            About
+                        <Link to="/work" onClick={() => setMobileOpen(false)}>
+                            Work
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/process" onClick={() => setMobileOpen(false)}>
+                            Process
                         </Link>
                     </li>
                     <li>
                         <Link to="/blog" onClick={() => setMobileOpen(false)}>
                             Insights
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/team" onClick={() => setMobileOpen(false)}>
+                            About
                         </Link>
                     </li>
                     <li>
@@ -137,7 +156,7 @@ export const Navbar: React.FC = () => {
                 </ul>
                 <div>
                     <MagneticCTA to="/consultation" className="btn-premium btn-full">
-                        Book a 15-minute call
+                        Book Strategy Call
                     </MagneticCTA>
                 </div>
             </div>

@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
 import { Seo } from '../../components/Seo';
 import { BLOG_POSTS } from '../../content/blog';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { cinematicStagger, cinematicUp } from '../../lib/motion';
 import { CinematicText } from '../../components/effects/CinematicText';
 import styles from './BlogPost.module.css';
@@ -64,7 +64,7 @@ export const BlogPost: React.FC = () => {
                         className={styles.articleBody}
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                        transition={{ delay: 0.3, duration: 0.8, ease: 'easeOut' }}
                     >
                         {post.content.split('\n').map((paragraph, index) => {
                             if (!paragraph.trim()) return null;
@@ -78,3 +78,4 @@ export const BlogPost: React.FC = () => {
 };
 
 export default BlogPost;
+

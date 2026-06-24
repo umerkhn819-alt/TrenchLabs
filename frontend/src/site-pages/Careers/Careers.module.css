@@ -1,46 +1,161 @@
+/* ============================================================
+   CAREERS PAGE — PREMIUM STYLESHEET
+   ============================================================ */
+
 .hero {
-    padding: 12rem 0 4rem 0;
+    position: relative;
+    padding: clamp(8rem, 12vw, 12rem) 0 clamp(6rem, 10vw, 8rem);
+    background-color: #000000;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.heroGlow {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80vw;
+    height: 80vh;
+    background: radial-gradient(circle at center, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.categoryBadge {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    display: inline-block;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+}
+
+.heroTitle {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    margin: 0 auto 1.5rem;
+    color: #ffffff;
+    max-width: 900px;
+}
+
+.heroDesc {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 700px;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+/* Values Bento */
 .valuesSection {
-    background-color: var(--bg-secondary);
+    padding: clamp(6rem, 8vw, 10rem) 0;
+    background-color: #000000;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 5rem;
 }
 
 .valuesGrid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
-    margin-top: 4rem;
+    gap: 2rem;
 }
 
 .valueCard {
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 2.5rem;
+    background: rgba(15, 15, 15, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3.5rem 2.5rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.valueCard:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.valueGlow {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.valueCard:hover .valueGlow {
+    opacity: 1;
 }
 
 .valIcon {
-    color: var(--text-primary);
-    margin-bottom: 1.5rem;
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
 }
 
 .valueCard h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .valueCard p {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
 /* Benefits Section */
+.benefitsSection {
+    padding: clamp(6rem, 8vw, 10rem) 0;
+    background-color: rgba(10, 10, 10, 0.4);
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 .benefitsGrid {
     display: grid;
-    grid-template-columns: 1.2fr 1.8fr;
+    grid-template-columns: 1fr 1fr;
     gap: 4rem;
     align-items: center;
+}
+
+.benefitsLeft h2 {
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.benefitsLeft p {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.6;
 }
 
 .benefitsList {
@@ -49,61 +164,102 @@
     flex-direction: column;
     gap: 1.25rem;
 }
+
 .benefitsList li {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    font-size: 1rem;
-    color: var(--text-secondary);
+    gap: 1.5rem;
+    background: rgba(15, 15, 15, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 16px;
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.8);
     font-weight: 500;
+    transition: transform 0.3s ease;
 }
-.benefitsList li svg {
-    color: var(--text-primary);
+
+.benefitsList li:hover {
+    transform: translateX(10px);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.benefitIcon {
+    color: #38bdf8;
+    background: rgba(56, 189, 248, 0.1);
+    padding: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Active Vacancies */
 .rolesSection {
-    background-color: var(--bg-secondary);
+    padding: clamp(6rem, 8vw, 10rem) 0;
+    background-color: #000000;
 }
 
 .rolesList {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    margin-top: 4rem;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .roleCard {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-lg);
-    padding: 2rem 2.5rem;
-    box-shadow: var(--card-shadow);
-    transition: border-color var(--t-fast);
+    background: rgba(15, 15, 15, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
 }
+
 .roleCard:hover {
-    border-color: var(--border-hover);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.roleGlow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at left, rgba(255, 255, 255, 0.03) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.roleCard:hover .roleGlow {
+    opacity: 1;
 }
 
 .roleMeta {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .roleDept {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--text-primary);
+    letter-spacing: 0.1em;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 .roleMeta h3 {
-    font-size: 1.35rem;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
     font-weight: 800;
+    color: #ffffff;
 }
 
 .badges {
@@ -112,26 +268,53 @@
     align-items: center;
 }
 
-.payBadge {
-    font-size: 0.75rem;
-    font-weight: 600;
-    background-color: var(--bg-subtle);
-    border: 1px solid var(--border-color);
-    color: var(--text-secondary);
-    padding: 0.25rem 0.6rem;
-    border-radius: var(--radius-full);
+.termBadge {
+    font-size: 0.8rem;
+    font-weight: 700;
+    background: rgba(56, 189, 248, 0.1);
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    color: #38bdf8;
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
 }
 
-/* Modal Overlay & Card dialogs */
+.payBadge {
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 0.4rem 0.8rem;
+    border-radius: 100px;
+}
+
+.applyBtn {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+}
+
+.roleCard:hover .applyBtn {
+    color: #38bdf8;
+}
+
+/* Modal Overlay */
 .modalOverlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgb(0 0 0 / 0.58);
-    backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(1.1);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
     z-index: 2000;
     display: flex;
     align-items: center;
@@ -140,56 +323,138 @@
 }
 
 .modalContent {
-    background: var(--glass-bg-strong);
-    backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-    -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
-    border: 1px solid var(--glass-border);
-    border-radius: var(--radius-lg);
+    background: #0a0a0a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
     width: 100%;
-    max-width: 600px;
-    padding: 3rem;
+    max-width: 700px;
+    padding: 4rem;
     position: relative;
-    box-shadow: 0 22px 56px rgb(0 0 0 / 0.45), var(--glass-inset);
-    animation: scaleIn var(--t-normal) forwards;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+    animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    overflow: hidden;
+}
+
+.modalGlow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.1) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 @keyframes scaleIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
+    from { opacity: 0; transform: scale(0.95) translateY(20px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
 }
 
 .closeBtn {
     position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    font-size: 1.85rem;
-    color: var(--text-muted);
+    top: 2rem;
+    right: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
     cursor: pointer;
-    transition: color var(--t-fast);
+    transition: all 0.3s ease;
+    z-index: 10;
 }
 .closeBtn:hover {
-    color: var(--text-primary);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modalTag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #38bdf8;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 .applyForm h2 {
-    font-size: 1.6rem;
-    margin-bottom: 0.25rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
 }
 .applyForm p {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 3rem;
 }
 
 .formGrid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
+    gap: 1.5rem;
 }
 
-/* Spinner Loader */
+.inputGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.inputGroup label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.7);
+}
+.inputGroup input, .inputGroup textarea {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.25rem;
+    color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    outline: none;
+    font-family: inherit;
+}
+.inputGroup input:focus, .inputGroup textarea:focus {
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.submitBtn {
+    width: 100%;
+    margin-top: 3rem;
+    background: #ffffff;
+    color: #000000;
+    border: none;
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    transition: background 0.3s ease;
+}
+
+.submitBtn:hover:not(:disabled) {
+    background: #e0e0e0;
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 .spinner {
     animation: rotate 1s linear infinite;
 }
@@ -203,32 +468,60 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    padding: 2rem 0;
 }
-.successIcon {
-    color: var(--text-primary);
+
+.successIconWrap {
+    color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
 }
+
 .successScreen h2 {
-    font-size: 1.6rem;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 1rem;
 }
+
 .successScreen p {
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.6);
     line-height: 1.6;
-    margin-bottom: 1.5rem;
+    margin-bottom: 3rem;
     max-width: 440px;
+}
+
+.successBtn {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 1rem 3rem;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.successBtn:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 /* Breakpoints overrides */
 @media (max-width: 1024px) {
     .valuesGrid, .benefitsGrid {
         grid-template-columns: 1fr;
-        gap: 2.5rem;
     }
     .roleCard {
         flex-direction: column;
         align-items: flex-start;
-        gap: 1.5rem;
+        gap: 2rem;
     }
 }
 @media (max-width: 640px) {
@@ -236,6 +529,9 @@
         grid-template-columns: 1fr;
     }
     .modalContent {
-        padding: 2rem 1.5rem;
+        padding: 3rem 2rem;
+    }
+    .roleCard {
+        padding: 2rem;
     }
 }

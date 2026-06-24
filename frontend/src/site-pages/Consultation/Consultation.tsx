@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { Calendar as CalendarIcon, Clock, CheckCircle, Loader2, ArrowRight } from 'lucide-react';
 import { Transitions } from '../../components/Transitions';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { cinematicStagger, cinematicUp, viewportOnce } from '../../lib/motion';
 import { CinematicText } from '../../components/effects/CinematicText';
 import { CinematicCard } from '../../components/effects/CinematicCard';
@@ -220,3 +220,4 @@ export const Consultation: React.FC = () => {
     );
 };
 export default Consultation;
+

@@ -1,15 +1,17 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { MagneticCTA } from './premium/MagneticCTA';
 import styles from './Footer.module.css';
 
-export const Footer: React.FC = () => {
+export interface FooterProps {
+    hideCTA?: boolean;
+}
+
+export const Footer: React.FC<FooterProps> = ({ hideCTA }) => {
     const [localTime, setLocalTime] = useState<string>('');
-    const location = useLocation();
-    const isServiceDetail = location.pathname.startsWith('/services/') && location.pathname !== '/services';
 
     useEffect(() => {
         const updateClock = () => {
@@ -31,22 +33,7 @@ export const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.mesh} aria-hidden />
-            {!isServiceDetail && (
-                <div className={styles.ctaBand}>
-                    <div className="container">
-                        <h2>Book a short call</h2>
-                        <p>15 minutes to pressure-test fit, scope, and the fastest sane path—no deck required.</p>
-                        <div className={styles.ctaRow}>
-                            <MagneticCTA to="/consultation" className="btn-premium">
-                                Book a 15-minute call <ArrowRight size={16} />
-                            </MagneticCTA>
-                            <Link to="/contact" className={styles.ctaSecondaryBtn} title="Prefer email? One form, no calendar.">
-                                Email us
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            )}
+
 
             <div className="container">
                 <div className={styles.grid}>

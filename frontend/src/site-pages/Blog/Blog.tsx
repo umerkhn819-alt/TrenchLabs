@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Transitions } from '../../components/Transitions';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { cinematicStagger, cinematicUp, scaleIn, viewportOnce } from '../../lib/motion';
 import { CinematicText } from '../../components/effects/CinematicText';
 import { CinematicCard } from '../../components/effects/CinematicCard';
@@ -129,3 +129,4 @@ export const Blog: React.FC = () => {
     );
 };
 export default Blog;
+

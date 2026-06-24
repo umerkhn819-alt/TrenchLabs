@@ -23,34 +23,47 @@ export const Team: React.FC = () => {
     return (
         <Transitions>
             <Seo
-                title="Team"
+                title="About Us"
                 description="Leadership and engineers behind TrenchLabs — architecture, delivery, and operations."
                 path="/team"
             />
 
             <section className={styles.hero}>
-                <GridOverlay opacity={0.05} />
+                <div className={styles.heroGlow} />
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <motion.div
                         variants={cinematicStagger}
                         initial="hidden"
                         animate="show"
+                        className={styles.aboutHeader}
                     >
-                        <motion.div variants={cinematicUp}>
-                            <GlowBadge variant="accent" pulse>The team</GlowBadge>
-                        </motion.div>
-                        <motion.h1 variants={cinematicUp} className={styles.heroTitle}>Founder-led, engineer-executed</motion.h1>
-                        <CinematicText as="p" className={styles.heroDesc} staggerDelay={0.03}>
-                            A small, focused team of engineers and operations specialists who care about craft.
-                            No account managers—you work directly with the people building your product.
+                        <motion.h1 variants={cinematicUp} className={styles.heroTitle}>
+                            About Us
+                        </motion.h1>
+                        <CinematicText as="p" className={styles.heroIntro} staggerDelay={0.03}>
+                            At TrenchLabs, we believe in the power of engineering to elevate brands. We're a technical agency that specializes in crafting bold systems, user-centric applications, and innovative digital solutions. With over 150 projects completed, we've built a reputation for delivering exceptional, results-driven software.
                         </CinematicText>
+                        
+                        <motion.div variants={cinematicUp} className={styles.heroImageWrap}>
+                            <div className={styles.imageGlow} />
+                            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80" alt="TrenchLabs Team" className={styles.heroImage} />
+                        </motion.div>
+
+                        <CinematicText as="p" className={styles.heroMission} staggerDelay={0.03}>
+                            We collaborate closely with our clients, understanding their vision and business goals. Our mission is to help you stand out and create lasting impressions that drive growth. Let's build something unforgettable together!
+                        </CinematicText>
+
+                        <motion.div variants={cinematicUp} style={{ marginTop: '2.5rem' }}>
+                            <Link to="/contact" className={styles.contactBtn}>
+                                Get In Touch
+                            </Link>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>
 
             {/* Stats strip */}
-            <section className={`${styles.statsSection} section-inset`}>
-                <GridOverlay opacity={0.06} variant="dots" />
+            <section className={styles.statsSection}>
                 <div className="container" style={{ position: 'relative', zIndex: 1 }}>
                     <motion.div 
                         className={styles.statsGrid}
@@ -59,15 +72,23 @@ export const Team: React.FC = () => {
                         whileInView="show"
                         viewport={viewportOnce}
                     >
-                        <motion.div variants={scaleIn}><StatCounter value={5} suffix="+" label="Team members" /></motion.div>
-                        <motion.div variants={scaleIn}><StatCounter value={4} suffix="+" label="Years in operation" /></motion.div>
-                        <motion.div variants={scaleIn}><StatCounter value={150} suffix="+" label="Projects delivered" /></motion.div>
-                        <motion.div variants={scaleIn}><StatCounter value={99} suffix="%" label="Client retention" /></motion.div>
+                        <motion.div variants={scaleIn} className={styles.statBox}>
+                            <h3 className={styles.statValue}>150+</h3>
+                            <p className={styles.statLabel}>Projects Completed</p>
+                        </motion.div>
+                        <motion.div variants={scaleIn} className={styles.statBox}>
+                            <h3 className={styles.statValue}>99%</h3>
+                            <p className={styles.statLabel}>Happy Clients</p>
+                        </motion.div>
+                        <motion.div variants={scaleIn} className={styles.statBox}>
+                            <h3 className={styles.statValue}>7+</h3>
+                            <p className={styles.statLabel}>Industry Awards</p>
+                        </motion.div>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Team cards */}
+            {/* Team cards - Massive */}
             <section className={styles.gridSection}>
                 <div className="container">
                     <motion.div 
@@ -77,10 +98,8 @@ export const Team: React.FC = () => {
                         whileInView="show"
                         viewport={viewportOnce}
                     >
-                        <div>
-                            <span className="section-tagline">Leadership</span>
-                            <h2 className="section-title">Who you work with</h2>
-                        </div>
+                        <span className="section-tagline">Leadership</span>
+                        <h2 className="section-title">The Syndicate</h2>
                     </motion.div>
                     <motion.div 
                         className={styles.grid}
@@ -93,6 +112,7 @@ export const Team: React.FC = () => {
                             <CinematicCard key={mem.id} delay={idx * 0.1}>
                                 <Link to={`/team/${mem.id}`} className={styles.teamCard}>
                                     <div className={styles.teamCardPhoto}>
+                                        <div className={styles.teamCardOverlay} />
                                         {mem.photo ? (
                                             <img src={mem.photo} alt={mem.name} className={styles.teamCardImg} />
                                         ) : (
@@ -100,12 +120,12 @@ export const Team: React.FC = () => {
                                                 <span>{mem.name.charAt(0)}</span>
                                             </div>
                                         )}
-                                        <span className={styles.roleBadge}>{mem.role}</span>
                                     </div>
                                     <div className={styles.teamCardBody}>
+                                        <span className={styles.roleBadge}>{mem.role}</span>
                                         <h3>{mem.name}</h3>
                                         <p>{TEAM_MEMBERS_BY_ID[mem.id]?.philosophy}</p>
-                                        <span className={styles.teamCardCta}>Full profile &rarr;</span>
+                                        <span className={styles.teamCardCta}>View Dossier &rarr;</span>
                                     </div>
                                 </Link>
                             </CinematicCard>
@@ -124,10 +144,8 @@ export const Team: React.FC = () => {
                         whileInView="show"
                         viewport={viewportOnce}
                     >
-                        <div>
-                            <span className="section-tagline">Philosophy</span>
-                            <h2 className="section-title">Our engineering principles</h2>
-                        </div>
+                        <span className="section-tagline">Philosophy</span>
+                        <h2 className="section-title">Engineering Principles</h2>
                     </motion.div>
                     <motion.div 
                         className={styles.valuesGrid}
@@ -141,8 +159,9 @@ export const Team: React.FC = () => {
                             return (
                                 <CinematicCard key={v.title} delay={idx * 0.1}>
                                     <div className={styles.valueCard}>
-                                        <div className={styles.valueIconWrap} style={{ '--vc': v.color } as React.CSSProperties}>
-                                            <Icon size={22} strokeWidth={2.25} />
+                                        <div className={styles.valueGlow} style={{ background: `radial-gradient(circle at top right, ${v.color}20 0%, transparent 70%)` }} />
+                                        <div className={styles.valueIconWrap} style={{ color: v.color, backgroundColor: `${v.color}15`, border: `1px solid ${v.color}30` }}>
+                                            <Icon size={28} strokeWidth={2} />
                                         </div>
                                         <h4>{v.title}</h4>
                                         <CinematicText as="p">{v.desc}</CinematicText>
